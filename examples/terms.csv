@@ -1,0 +1,17 @@
+Local Term Label,Ontology Term Label,Ontology Term IRI,Technique
+RAT,Rattus norvegicus,http://purl.obolibrary.org/obo/NCBITaxon_10116,MIREOT
+MOUSE,Mus musculus,http://purl.obolibrary.org/obo/NCBITaxon_10090,MIREOT
+F 344/N,,,QTT
+F 344/N,,,QTT
+FEMALE,female,http://purl.obolibrary.org/obo/PATO_0000383,MIREOT
+MALE,male,http://purl.obolibrary.org/obo/PATO_0000384,MIREOT
+HISTOPATHOLOGY,histology,http://purl.obolibrary.org/obo/OBI_0600020,MIREOT
+LUNG,lung,http://purl.obolibrary.org/obo/UBERON_0002048,EXTRACT
+NOSE,external nose,http://purl.obolibrary.org/obo/UBERON_0007827,EXTRACT
+ADRENAL CORTEX,adrenal cortex,http://purl.obolibrary.org/obo/UBERON_0001235,EXTRACT
+ADENOCARCINOMA,adenocarcinoma,http://purl.obolibrary.org/obo/MPATH_268,MIREOT
+INFLAMMATION,inflammation,http://purl.obolibrary.org/obo/MPATH_212,MIREOT
+NECROSIS,necrosis,http://purl.obolibrary.org/obo/MPATH_4,MIREOT
+SEVERE,severe intensity,http://purl.obolibrary.org/obo/PATO_0000396,MIREOT
+MILD,mild intensity,http://purl.obolibrary.org/obo/PATO_0000394,MIREOT
+MODERATE,moderate intensity,http://purl.obolibrary.org/obo/PATO_0000395,MIREOT

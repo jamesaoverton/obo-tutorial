@@ -1,0 +1,93 @@
+##### Import terms from OBI ######
+
+[URI of the OWL(RDF/XML) output file]
+https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/ontofox.owl
+
+[Source ontology]
+OBI
+
+[Low level source term URIs]
+http://purl.obolibrary.org/obo/OBI_0600020 # histology
+http://purl.obolibrary.org/obo/OBI_0100026 # organism, used as a parent for NCBI Taxon
+
+[Top level source term URIs and target direct superclass URIs]
+http://purl.obolibrary.org/obo/BFO_0000001 # entity
+
+[Source term retrieval setting]
+includeAllIntermediates # include all the intermediate terms
+
+[Source annotation URIs]
+includeAllAxiomsRecursively
+
+
+##### Import terms from NCBI Taxononmy ######
+
+[URI of the OWL(RDF/XML) output file]
+
+[Source ontology]
+NCBITaxon
+
+[Low level source term URIs]
+http://purl.obolibrary.org/obo/NCBITaxon_10090 # Mus musculus
+http://purl.obolibrary.org/obo/NCBITaxon_10116 # Rattus norvegicus
+
+[Top level source term URIs and target direct superclass URIs]
+http://purl.obolibrary.org/obo/NCBITaxon_2759 # Eukaryota
+
+[Source term retrieval setting]
+includeNoIntermediates # do not include any intermediate terms
+
+[Source annotation URIs]
+includeAllAxiomsRecursively
+
+
+##### Import terms from MPATH ######
+
+[URI of the OWL(RDF/XML) output file]
+
+[Source ontology]
+MPATH
+
+[Low level source term URIs]
+http://purl.obolibrary.org/obo/MPATH_268 # adenocrcinoma
+http://purl.obolibrary.org/obo/MPATH_212 # inflammation
+http://purl.obolibrary.org/obo/MPATH_4   # necrosis
+
+[Top level source term URIs and target direct superclass URIs]
+http://purl.obolibrary.org/obo/MPATH_0   # pathological entity
+
+[Source term retrieval setting]
+includeComputedIntermediates # include some intermediate terms
+
+[Source annotation URIs]
+includeAllAxiomsRecursively
+
+
+##### Import terms from PATO ######
+
+[URI of the OWL(RDF/XML) output file]
+
+[Source ontology]
+PATO
+
+[Low level source term URIs]
+http://purl.obolibrary.org/obo/PATO_0000383 # female
+http://purl.obolibrary.org/obo/PATO_0000384 # male
+http://purl.obolibrary.org/obo/PATO_0000394 # mild
+http://purl.obolibrary.org/obo/PATO_0000395 # moderate
+http://purl.obolibrary.org/obo/PATO_0000396 # severe
+
+[Top level source term URIs and target direct superclass URIs]
+# we assert that these terms are children of BFO "quality" instead of PATO "quality"
+http://purl.obolibrary.org/obo/PATO_0000049 # intensity
+subClassOf http://purl.obolibrary.org/obo/BFO_0000019 # quality
+http://purl.obolibrary.org/obo/PATO_0001894 # phenotypic sex
+subClassOf http://purl.obolibrary.org/obo/BFO_0000019 # quality
+
+[Source term retrieval setting]
+includeComputedIntermediates # include some intermediate terms
+
+[Source annotation URIs]
+includeAllAxiomsRecursively
+
+

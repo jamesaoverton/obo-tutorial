@@ -1,0 +1,5 @@
+.DS_Store
+.ant_targets
+code/lib
+code/target
+images/*.large.png

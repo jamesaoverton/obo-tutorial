@@ -1,0 +1,41 @@
+# Any text after # is just for notes and won't be used by Ontorat.
+
+[Online URL of the target OWL file (RDF/XML format)]
+# https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/ontorat.owl
+
+[Online URL of the data file (Only Excel file (.xls, .xlsx) or tab-delimited text file (.txt)]
+# https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/qtt.txt
+
+Actual data starts from row: 2
+
+[New axioms will be used to]
+edit existing classes with term IDs defined in column A
+  
+[Annotations]
+'label' "{$columnB}",
+'editor preferred term' "{$columnB}",
+'definition' "{$columnC}",
+'definition source' "{$columnD}",
+'seeAlso' "{$columnE}",
+'term editor' "{$columnF}"
+
+[Superclasses]
+<{$columnG}>
+
+[Terms used to define anntoations, equivalent classes and superclasses]
+# Note: One line per term
+AnnotationProperty: 
+'label': <http://www.w3.org/2000/01/rdf-schema#label>
+'definition': <http://purl.obolibrary.org/obo/IAO_0000115>
+'definition source': <http://purl.obolibrary.org/obo/IAO_0000119>
+'editor preferred term': <http://purl.obolibrary.org/obo/IAO_0000111>
+'seeAlso': <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+'term editor': <http://purl.obolibrary.org/obo/IAO_0000117>
+Class:
+ObjectProperty: 
+DataProperty:
+
+[Term URIs start with]
+https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl#
+
+[Auto-generated term ID]

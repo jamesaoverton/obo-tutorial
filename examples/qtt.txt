@@ -1,0 +1,3 @@
+ID	Label	Definition	Definition Source	See Also	Editor	Parent IRI
+F344N	F 344/N	An inbred strain of rat used in many scientific investigations.	James A. Overton	http://www.informatics.jax.org/external/festing/rat/docs/F344.shtml	James A. Overton	http://purl.obolibrary.org/obo/NCBITaxon_10116
+B6C3F1	B6C3F1	An inbred strain of mouse used in many scientific investigations.	James A. Overton	http://jaxmice.jax.org/strain/100010.html	James A. Overton	http://purl.obolibrary.org/obo/NCBITaxon_10090

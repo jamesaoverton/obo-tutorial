@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="obo-tutorial" default="help" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+  <property name="src" value="src/java" />
+  <property name="resources" value="resources" />
+  <property name="target" value="target" />
+  <property name="classes" value="${target}/classes" />
+  <property name="javadoc" value="${target}/javadoc" />
+  <property name="test-classes" value="${target}/test-classes" />
+  <property name="test-results" value="${target}/test-results" />
+  <property name="test-reports" value="${target}/test-reports" />
+  <property name="lib" value="lib" />
+
+  <!-- HELP -->
+  <target name="help" description="Print project help">
+    <java classname="org.apache.tools.ant.Main">
+      <arg value="-projecthelp" />
+      <arg value="-buildfile" />
+      <arg value="${ant.file}" />
+    </java>
+  </target>
+
+  <!-- INIT -->
+  <target name="init" depends="" description="Prepare for build">
+    <path id="classpath">
+      <fileset dir="${lib}">
+        <include name="*.jar" />
+      </fileset>
+    </path>
+  </target>
+
+  <!-- DEPS -->
+  <!-- Requires Apache Ivy to be installed for Ant. -->
+  <target name="deps" description="Retrieve dependencies with Apache Ivy">
+    <ivy:retrieve />
+  </target>
+
+  <!-- COMPILE -->
+  <target name="compile" depends="init" description="Compile the project">
+    <mkdir dir="${target}" />
+    <mkdir dir="${classes}" />
+    <javac destdir="${classes}" classpathref="classpath"
+      optimize="false" debug="true"
+      includeantruntime="false">
+      <src path="${src}" />
+    </javac>
+  </target>
+
+  <!-- PACKAGE -->
+  <!-- create a JAR file: ../bin/obo-tutorial.jar -->
+  <target name="package" depends="compile" description="Create a packaged Jar file" >
+    <!-- two steps to avoid a manifest signature problem -->
+    <jar jarfile="${target}/dependencies.jar">
+      <zipgroupfileset dir="${lib}" includes="*.jar"/>
+    </jar>
+    <sleep seconds="1" />
+    <jar id="files" jarfile="${target}/${ant.project.name}.jar"
+        basedir="${classes}">
+      <fileset dir="${resources}"/>
+      <zipfileset src="${target}/dependencies.jar"
+          excludes="META-INF/*.SF" />
+      <manifest>
+        <attribute name="Main-Class"
+            value="obo_tutorial.CommandLineInterface"/>
+      </manifest>
+    </jar>
+    <copy file="${target}/${ant.project.name}.jar"
+      tofile="../bin/${ant.project.name}.jar" overwrite="yes"/>
+    <delete file="${target}/${ant.project.name}.jar">
+    <delete file="${target}/dependencies.jar">
+  </target>
+
+  <!-- CLEAN -->
+  <target name="clean" depends="" description="Clean all non-source files">
+    <echo message="Cleaning non-source directories in ${basedir}" />
+    <delete dir="${target}" />
+  </target>
+
+</project>

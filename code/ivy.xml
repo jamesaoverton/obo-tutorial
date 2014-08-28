@@ -1,0 +1,8 @@
+<ivy-module version="2.0">
+  <info organisation="org.obi-ontology" module="build"/>
+  <dependencies>
+    <dependency org="commons-cli" name="commons-cli" rev="1.2" />
+    <dependency org="net.sourceforge.owlapi" name="owlapi-apibinding" rev="3.4.5" />
+    <dependency org="com.hermit-reasoner" name="org.semanticweb.hermit" rev="1.3.8.1" />
+  </dependencies>
+</ivy-module>
