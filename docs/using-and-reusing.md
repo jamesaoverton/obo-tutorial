@@ -35,17 +35,16 @@ OBO ontologies are freely distributed, and there's a number of different web sit
 
 Ontobee lists all the OBO ontologies and a few more, but the official list is at the OBO home page: <http://obofoundry.org>. That list distinguishes between "OBO Foundry" ontologies that have been reviewed for their adherence to the OBO Foundry principles, and "OBO Library" ontologies that have made a commitment to the principles but have not been reviewed. For each entry there's a brief description of the domain, plus links to information pages and ontology files.
 
-Several of the OBO principles and best practises are based on open source software development best practises. These include keeping files in publicly accessible version control systems that track and store every change to the ontology. Most OBO projects use one of these website for hosting project files in version control:
+Several of the OBO principles and best practises are based on open source software development best practises. These include keeping files in publicly accessible version control systems that track and store every change to the ontology. Most OBO projects use one of these websites for hosting project files in version control:
 
 - [GitHub](https://github.com)
 - [Google Code](https://code.google.com)
 - [SourceForge](http://sourceforge.net)
 
-Github is build around the [Git](http://www.git-scm.com) distributed version control system. Google Code and Sourceforge also support git, but more often you'll see project using [Subversion (SVN)](https://subversion.apache.org). Version control systems can be intimidating at first, but there are tutorials and applications to make life easier for beginners. If you're an absolute beginner, don't worry! You can probably do everything you'll need to do just with your web browser.
+GitHub is built around the [Git](http://www.git-scm.com) distributed version control system. Google Code and Sourceforge also support Git, but more often you'll see project using [Subversion (SVN)](https://subversion.apache.org). Version control systems can be intimidating at first, but there are tutorials and applications to make life easier for beginners. If you're an absolute beginner, don't worry! You can probably do everything you'll need to do with just your web browser.
 
 - Subversion's official documentation is a very good [book](http://svnbook.red-bean.com), free online and available in dead tree copies
 - GitHub has a great [interactive Git tutorial](https://try.github.io)
-
 - If you're comfortable with the command line, every platform has official tools for SVN and Git
 - If you already use an Integrated Development Environment (IDE) of some sort, it's very likely to have Git and SVN support built in
 - On Windows, most people seem to use [TortoiseSVN](http://tortoisesvn.tigris.org) as a graphical SVN client
@@ -65,19 +64,19 @@ Once you find a term that might be suitable, there are some things that you shou
 
 The first question is: can I use this term in my application ontology? This raises a series of questions about copyright.
 
-OBO ontologies are intended to be shared and required to be [open](http://www.obofoundry.org/wiki/index.php/FP_001_open), in the sense of "open source". The [Creative Commons CC-by 3.0](https://creativecommons.org/licenses/by/3.0/) license is recommended for OBO projects, although there is some variation. We expect people who use OBO ontology terms to use the official IRI for that term, We also expect users to respect common standards in the scientific community for giving credit to ontology developers for their work, such as citing the ontology in your publications. (Most ontologies have a "release paper" in a journal that you can use for citations. Check the ontology's website.)
+OBO ontologies are intended to be shared and required to be [open](http://www.obofoundry.org/wiki/index.php/FP_001_open), in the sense of "open source". The [Creative Commons CC-by 3.0](https://creativecommons.org/licenses/by/3.0/) license is recommended for OBO projects, although there's some variation. We expect people who use OBO ontology terms to use the official IRI for that term. We also expect users to respect common standards in the scientific community for giving credit to ontology developers for their work, such as citing the ontology in your publications. (Most ontologies have a "release paper" in a journal that you can use for citations. Check the ontology's website.)
 
 
 ### PURLs
 
-Every term should have a single, official IRI or PURL that identifies it. When you put that IRI into a web browser you should be directed to a useful webpage or file. Even IRIs for obsolete terms should continue to be directed to something useful. If the term you want to use doesn't have a reliable, permanent identifier, than how can you be sure that you and the rest of the community are using the same term?
+Every term should have a single, official IRI that identifies it, often called a "PURL". When you put that IRI into a web browser you should be directed to a useful webpage or file. Even IRIs for obsolete terms should continue to be directed to something useful. If the term you want to use doesn't have a reliable, permanent identifier, than how can you be sure that you and the rest of the community are using the same term?
 
 There is an OBO principle for [unique identifiers](http://www.obofoundry.org/wiki/index.php/FP_003_URIs) and a [identifier policy](http://www.obofoundry.org/id-policy.shtml) with the technical details.
 
 
 ### Labels
 
-Every term should have a single, official label. It can have many synonyms, translations, and alternative terms, but there should be a just one official label. It should probably be in American English. Ideally, it will be unambiguous across all of biology and biomedicine, and avoid ambiguities with common words in English. It shouldn't contain jargon or acronyms. Taking all of this into account, many ontology labels are long and ugly, but at least they're clear. You always add a shorter synonym or alternative term.
+Every term should have a single, official label. It can have many synonyms, translations, and alternative terms, but there should be a just one official label. It should probably be in American English. Ideally, it will be unambiguous across all of biology and biomedicine, and avoid ambiguities with common words in English. It shouldn't contain jargon or acronyms. Taking all of this into account, many ontology labels are long and ugly, but at least they're clear. You can always add a shorter synonym or alternative term.
 
 Labels are important, but the definition is even more important, so don't stop at reading the label!
 
@@ -88,7 +87,7 @@ OBO ontology terms usually have an `rdfs:label` and an "editor preferred term" (
 
 Does the term have a textual definition?
 
-There's a surprising number of "ontologies" out there with terms that have IDs and labels but no textual definitions at all. And there's a reason for that: good textual definitions are hard to write! And when you've written a clear and concise textual definition, more often than not you'll find that your collaborators say "That's not how we use 'X'". It's not until you have a definition that you can really start to discuss the meaning of a term, and build some consensus. 
+There's a surprising number of "ontologies" out there with terms that have IRIs and labels but no textual definitions at all. There's a simple reason for that: good textual definitions are hard to write! And when you've written a clear and concise textual definition, more often than not you'll find that your collaborators say "That's not how we use 'X'". It's not until you have a definition that you can really start to discuss the meaning of a term, and build some consensus. Without a good definition it's hard to be sure that everyone understands the term in the same way.
 
 An "annotation" is a bit of data attached to a term that doesn't have logical structure -- we'll talk about logic in just a second. [Labels](http://www.obofoundry.org/wiki/index.php/FP_012_naming_conventions) and [textual definitions](http://www.obofoundry.org/wiki/index.php/FP_006_textual_definitions) are the most important annotations, but terms are even more valuable when they have examples of usage, editor names, editor notes, synonyms and alternative terms.
 
@@ -97,30 +96,30 @@ An "annotation" is a bit of data attached to a term that doesn't have logical st
 
 Does the term have a logical definition?
 
-With very few exceptions, every class should have a parent class. OBO ontologies usually extend the [Basic Formal Ontology (BFO)](https://code.google.com/p/bfo/) which has just one term without a parent: "[entity](http://purl.obolibrary.org/obo/BFO_0000001)". Knowing a terms' parent (i.e. supertype) tells you a lot about that term, because everything that is true of the parent term must be true of the child term as well.
+With very few exceptions, every class should have a parent class. OBO ontologies usually extend the [Basic Formal Ontology (BFO)](https://code.google.com/p/bfo/) which has just one term without a parent: "[entity](http://purl.obolibrary.org/obo/BFO_0000001)". Knowing a term's parent (i.e. supertype) tells you a lot about that term, because the child term is defined in part by the parent term.
 
-Most ontologies use the Web Ontology Language, which provides a range of powerful tools for make logical statement about terms and their relationships. Well-defined logical relations allow for automated reasoning over the ontology and data that uses it. The richer the logical definitions, the more work the reasoner can do, although there is a balance to strike between power and performance.
+Most ontologies use the Web Ontology Language, which provides a range of powerful tools for make logical statements about terms and their relationships. Well-defined logical relations allow for automated reasoning over the ontology and data that uses it. The richer the logical definitions, the more work the reasoner can do, although there's a balance to strike between power and performance.
 
-If the term you want to use fits into the upper ontology (e.g. BFO) and other relations that you're already using, then you're enriching the network of data in your application ontology. If the term doesn't fit, then you might not be adding much by using it. OBO ontologies strive for interoperability.
+If the term you want to use fits into the upper ontology and other relations that you're already using, then you're enriching the network of data in your application ontology. If the term doesn't fit, then you might not be adding much by using it. OBO ontologies strive to form a rich, interconnected network.
 
 
 ### Community
 
 Who made this ontology? When was it made? Has it been updated since its initial release? Is it ever going to be updated again?
 
-Several related OBO principles require that an ontology have a community of [users](http://www.obofoundry.org/wiki/index.php/FP_009_users) who [collaborate](http://www.obofoundry.org/wiki/index.php/FP_010_collaboration) on the ontology, [some person or group or organization in charge](http://www.obofoundry.org/wiki/index.php/FP_011_locus_of_authority), and a commitment to ongoing [maintenance](http://www.obofoundry.org/wiki/index.php/FP_016_maintenance). Too often I've found an ontology that passes all the other criteria, but it was developed by a few authors to support a single project five years ago, and it hasn't been updated since. Building an ontology and maintaining it is hard. Building a community an maintaining it is even harder. But this is what OBO projects strive to do.
+Several related OBO principles require that an ontology have a community of [users](http://www.obofoundry.org/wiki/index.php/FP_009_users) who [collaborate](http://www.obofoundry.org/wiki/index.php/FP_010_collaboration) on the ontology, [some person or group or organization in charge](http://www.obofoundry.org/wiki/index.php/FP_011_locus_of_authority), and a commitment to ongoing [maintenance](http://www.obofoundry.org/wiki/index.php/FP_016_maintenance). Too often I've found an ontology that passes all the other criteria, but it was developed by a few authors to support a single project five years ago, and it hasn't been updated since. Building an ontology and maintaining it is hard. Building a community and maintaining it is even harder. But this is another thing that OBO projects strive to do.
 
 
 ## Mapping Terms
 
 We've just seen how to find OBO ontologies and terms, and how to assess their quality. Now let's put that into practise.
 
-Starting with data like our [data-before.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-before.csv) spreadsheet, my first step is usually to create a list of all the "local" terms I want to "map" to reference ontology terms. I put this list in a spreadsheet. Then I use Ontobee and OntoMaton to find one ontology term for each local term. Usually I can find one, with a little work, but sometimes I can't. My third step is to decide how to get each ontology term into my application ontology. There are three main techniques that I use, each described in the next section:
+Starting with data like our [data-before.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-before.csv) spreadsheet, my first step is usually to create a list of all the "local" terms I want to "map" to reference ontology terms. I put this list in a spreadsheet. Then I use Ontobee and OntoMaton to find one ontology term for each local term. Usually I can find one, with a little work, but sometimes I can't. My third step is to decide how to get each term into my application ontology. There are four main techniques that I use, each described in the next section:
 
 1. if there's just a few terms from the reference ontology, I'll MIREOT them using OntoFox
 2. if I want to use many terms from a small reference ontology, I'll import the whole thing using Protégé
-3. if there are many terms from the reference ontology, or the reference ontology has complex logical axioms, but I don't want to import the whole thing, then I'll extract the terms I need using OWLAPI
-4. if there's no reference ontology term, then I'll define the term for my application ontology using QTT
+3. if there are many terms from the reference ontology or the reference ontology has complex logical axioms, but I don't want to import the whole thing, then I'll extract the terms I need using OWLAPI
+4. if there's no reference ontology term, then I'll define the term for my application ontology using QTT or in Protégé
 
 So those are my three steps:
 
@@ -128,7 +127,7 @@ So those are my three steps:
 2. search for reference ontology terms
 3. decide how to import each term into my application ontology
 
-This [Google spreadsheet](https://docs.google.com/spreadsheets/d/16_CcUQc5bgAiJn2VALGp537uQzavInd5tyqzTbNvQLI/edit?usp=sharing) shows the list of terms from `data-before.csv`, the reference ontology terms I want to map them too, and the import technique I will use. It also shows how you can use the OntoMaton plugin to make searching easier.
+This [Google spreadsheet](https://docs.google.com/spreadsheets/d/16_CcUQc5bgAiJn2VALGp537uQzavInd5tyqzTbNvQLI/edit?usp=sharing) shows the list of terms from [data-before.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-before.csv), the reference ontology terms I want to map them too, and the import technique I will use. It also shows how you can use the OntoMaton plugin to make searching easier.
 
 
 ## Importing Terms
@@ -151,17 +150,17 @@ OntoFox is a free service, but it has limited resources. If you aren't careful, 
 
 To use OntoFox you need to select a source ontology, then provide two sets of terms that you want to import: low level terms and top level terms. You will also have to choose whether you want to include *intermediate* terms. You have three options: 
 
-- includeNoIntermediates: only the terms you specified will be included
-- includeAllIntermediates: all the terms between low level and top level will be included
-- includeComputedIntermediates: a minimal set of terms connecting the low level to the top level will be included
+- `includeNoIntermediates`: only the terms you specified will be included
+- `includeAllIntermediates`: all the terms between low level and top level will be included
+- `includeComputedIntermediates`: a minimal set of terms connecting the low level to the top level will be included
 
-Another option is to include all the children of a given low level term. These options can be a little confusing at first, and it's worthwhile to experiment with a few different combinations. For large ontologies such as the NCBI Taxonomy, includeNoIntermediates is probably the best choice. Otherwise includeComputedIntermediates strikes a good balance.
+Another option is to include all the children of a given low level term. These options can be a little confusing at first, and it's worthwhile to experiment with a few different combinations. For large ontologies such as the NCBI Taxonomy, `includeNoIntermediates` is probably the best choice. Otherwise `includeComputedIntermediates` strikes a good balance.
 
 Beware that including too many intermediate terms can cause problems for the OntoFox server. When you're experimenting with including intermediates, make sure that there's only a few levels of hierarchy between "low" and "top", and start with just a few of the terms you want to import.
 
 OntoFox also provide a range of options for selecting which annotations you want to include, and for mapping between sets of annotations. Although the form on the web site only allows extracting terms from one ontology at a time, in a configuration file you can specify several ontologies each with a number of terms and other settings. This is another reason to learn how to use the [input configuration files](http://ontofox.hegroup.org/tutorial/index.php#input_format).
 
-The [ontofox.txt](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/ontofox.txt) file shows what an OntoFox input file looks like. It has four sections because we're importing from three ontologies: OBI, NCBI Taxonomy, MPATH, and PATO. It lists the low level and top level terms we want to import from each reference ontology. Each section has a different rule for selecting intermediates, but all of them use includeAllAxiomsRecursively to get the full set of annotations. It also shows how to use `subClassOf` to place imported terms exactly where you want them.
+The [ontofox.txt](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/ontofox.txt) file shows what an OntoFox input file looks like. It has four sections because we're importing from four ontologies: OBI, NCBI Taxonomy, MPATH, and PATO. It lists the low level and top level terms we want to import from each reference ontology. Each section has a different rule for selecting intermediates, but all of them use `includeAllAxiomsRecursively` to get the full set of annotations. It also shows how to use `subClassOf` to place imported terms exactly where you want them.
 
 On the OntoFox website you can "Upload input file" and with `ontofox.txt` then click "Get OWL (RDF/XML) Output File". The resulting OWL file is [ontofox.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/ontofox.owl).
 
@@ -170,7 +169,7 @@ On the OntoFox website you can "Upload input file" and with `ontofox.txt` then c
 
 The MIREOT technique and OntoFox tool are the right choice for importing a limited number terms from other ontologies. For creating your own terms, Protégé is a good tool. But if you find yourself creating more than a few terms with very similar structure, you might wish that you had a spreadsheet. In that case, consider using the [Quick Term Template (QTT)](http://iospress.metapress.com/content/915402764wv061n6/) method.
 
-QTT is a technique for transforming tables of data about terms into OWL format. In the table you have a row for each term with columns for the IRI, for the label, for the definition, and for other annotations. You can also have columns with IRIs for other terms that have a well-defined relationship to the term in that row. This is the input to the QTT tool, and the output is an OWL representation of the same data ready to be used in your ontology.
+QTT is a technique for transforming tables of data about terms into OWL format. In the table you have a row for each term with columns for the IRI, the label, the definition, and other annotations. You can also have columns with IRIs for other terms that have a well-defined relationship to the term in that row, such as the parent term. This is the input to the QTT tool, and the output is an OWL representation of the same data ready to be used in your ontology.
 
 The [qtt.txt](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/qtt.txt) file is a tab-separated spreadsheet with the two local terms we want to define for our example: strains of inbred rats and mice. These terms should probably be defined in some OBO ontology but I haven't managed to find them. It suits our current purposes to use them as an example of application ontology terms. As you can see, I've given the term ID in the first column, then annotations such as the label, definition, and editor. I've also given the IRI of the parent term.
 
@@ -200,13 +199,13 @@ Keep in mind that imports can be somewhat unpredictable. Tools such as Protégé
 
 OBO ontologies have versions, usually specified by date. I recommend importing a specific, dated version of any ontology. To update it, just change the import link to the latest dated version. This allows you to control when updates are made. And if the other ontology releases a new version that breaks something in your ontology, you'll be able to stick to the older version until the problem is fixed.
 
-For OntoFox or Ontorat OWL files, just use the latest results OWL files. You control when you update those files, so there shouldn't be any problem with mismatching versions.
+For OntoFox or Ontorat OWL files, just use the latest OWL files. You control when you update those files, so there shouldn't be any problem with mismatching versions.
 
-Another thing to beware of is the `catalog.xml` (aka `catalog-v001.xml`) files used by Protégé and OWLAPI. These are configuration files that Protégé automatically generates, and that contain information about imports. By editing these files you can change what files Protégé uses for imports. This can be very convenient and very confusing. While sometimes necessary, be very cautious when using `catalog.xml` files. This page explains the [details of OWL imports in Protégé](http://protegewiki.stanford.edu/wiki/How_Owl_2.0_Imports_Work).
+Another thing to beware of is the `catalog.xml` (aka `catalog-v001.xml`) files used by Protégé and OWLAPI. These are configuration files that Protégé automatically generates, and that contain information about imports. By editing these files you can change what files Protégé uses for imports, performing all sorts of redirections and substitutions. This can be very convenient and *very* confusing. While sometimes necessary, be very cautious when using `catalog.xml` files. This page explains the [details of OWL imports in Protégé](http://protegewiki.stanford.edu/wiki/How_Owl_2.0_Imports_Work).
 
 To import an ontology, first open your application ontology with Protégé. On the "Active Ontology" tab there should be a pane called "Ontology imports". Look for "Direct Imports" and click the plus sign next to it. This opens the "Import ontology wizard" which will give you a range of choices. You can either import from a local file or from a URI on the web. For reference ontologies I suggest using a URI. Protégé will periodically fetch a new copy of the file, so remember to use dated version whenever possible. For OntoFox and Ontorat results I tell the import wizard to use a local file.
 
-Here's an screenshot from the latest Protégé 5 beta release.
+Here's a screenshot from the latest Protégé 5 beta release importing the 2014-08-18 version of OBI.
 
 ![Protégé import screenshot](../images/import.png)
 
@@ -215,18 +214,20 @@ Here's an screenshot from the latest Protégé 5 beta release.
 
 Sometimes you want to import too many terms for OntoFox, but the target ontology is too large to import all of it. There's a tool you can use in this middle case: the [OWLAPI](http://owlapi.sourceforge.net)'s [SyntacticLocalityModuleExtractor](http://owlapi.sourceforge.net/javadoc/index.html?uk/ac/manchester/cs/owlapi/modularity/SyntacticLocalityModuleExtractor.html). Given an ontology and a set of terms to extract, it will create a "module" with just those terms and the terms they depend on. These dependencies are recursive, so the tool will take your list of terms, add all the terms they depend on, then add all the terms those dependencies depend on, and so on until it finds a closed set of terms. The resulting ontology can be saved to an OWL file and imported into your application ontology.
 
-Using this technique requires using OWLAPI, which means writing some Java code. There's no web service to to it for you. I've provided an example:
+Using this technique requires using OWLAPI, which means writing some Java code. There's no web service to do it for you. I've provided an example:
 
 - short official example (PDF) [The Rough Guide to the OWL API](http://owlapi.sourceforge.net/owled2011_tutorial.pdf) 
 - full example: [Extractor.java](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/Extractor.java)
 - list of terms to extract: [uberon-terms.txt](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/uberon-terms.txt)
 - sample command -- make sure you download [Uberon](purl.obolibrary.org/obo/uberon.owl) first (it's about 60MB):
 
-    java -jar bin/obo-tutorial.jar extract \
-      examples/uberon.owl \
-      examples/uberon-terms.txt \
-      examples/uberon-module.owl \
-      "https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/uberon-module.owl"
+```
+java -jar bin/obo-tutorial.jar extract \
+  examples/uberon.owl \
+  examples/uberon-terms.txt \
+  examples/uberon-module.owl \
+  "https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/uberon-module.owl"
+```
     
 This command will extract the terms listed in `uberon-terms.txt` and all their dependencies into the [uberon-module.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/uberon-module.owl) file. Because Uberon has many logical axioms linking terms, there are many dependencies, and the result is more than 2MB.
     
@@ -244,7 +245,7 @@ First we saw how to find reference ontology terms and assess them. Then we saw h
 4. Add any other annotations or terms you like
 5. Save the ontology to `application.owl`
 
-The result is an application ontology with all the terms listed in our `terms.csv` file, plus the dependencies that we want.
+Or skip those steps and just look at the resulting [application.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/example/application.owl) file I've created. The result includes all the terms listed in our `terms.csv` file, plus the dependencies that we want.
 
-One application ontology can support many similar projects. In the next section we'll see how to connect the data in the running example to the application ontology to take full advantage of it.
+One application ontology can support many similar projects. In the [next section](https://github.com/jamesaoverton/obo-tutorial/blob/master/docs/processing-data.md) we'll see how to connect the data in the running example to the application ontology to take full advantage of it.
 
