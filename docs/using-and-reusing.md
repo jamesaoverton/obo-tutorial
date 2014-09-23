@@ -80,7 +80,7 @@ Every term should have a single, official label. It can have many synonyms, tran
 
 Labels are important, but the definition is even more important, so don't stop at reading the label!
 
-OBO ontology terms usually have an `rdfs:label` and an "editor preferred term" (annotation using `obo:IAO_0000111`) with the same string. There are also [naming conventions](http://www.obofoundry.org/wiki/index.php/Naming) for OBO terms, and an [IAO ontology metadata](https://code.google.com/p/information-artifact-ontology/wiki/OntologyMetadata) page.
+OBO ontology terms all have an `rdfs:label`. Some OBO ontologies use the IAO [editor preferred term](http://purl.obolibrary.org/obo/IAO_0000111) annotation to store the unique label, so that the `rdfs:label` can be changed to an alternative term suitable for particular use cases. There are also [naming conventions](http://www.obofoundry.org/wiki/index.php/Naming) for OBO terms, and an [IAO ontology metadata](https://code.google.com/p/information-artifact-ontology/wiki/OntologyMetadata) page.
 
 
 ### Textual Definitions
@@ -89,7 +89,7 @@ Does the term have a textual definition?
 
 There's a surprising number of "ontologies" out there with terms that have IRIs and labels but no textual definitions at all. There's a simple reason for that: good textual definitions are hard to write! And when you've written a clear and concise textual definition, more often than not you'll find that your collaborators say "That's not how we use 'X'". It's not until you have a definition that you can really start to discuss the meaning of a term, and build some consensus. Without a good definition it's hard to be sure that everyone understands the term in the same way.
 
-An "annotation" is a bit of data attached to a term that doesn't have logical structure -- we'll talk about logic in just a second. [Labels](http://www.obofoundry.org/wiki/index.php/FP_012_naming_conventions) and [textual definitions](http://www.obofoundry.org/wiki/index.php/FP_006_textual_definitions) are the most important annotations, but terms are even more valuable when they have examples of usage, editor names, editor notes, synonyms and alternative terms.
+An "annotation" is a bit of data attached to a term that doesn't have logical structure -- we'll talk about logic in just a second. [Labels](http://www.obofoundry.org/wiki/index.php/FP_012_naming_conventions) and [textual definitions](http://www.obofoundry.org/wiki/index.php/FP_006_textual_definitions) are the most important annotations, but terms are even more valuable when they have examples of usage, editor names, editor notes, synonyms and alternative terms. If a term looks promising, read all of its annotations.
 
 
 ### Logical Definitions
@@ -101,6 +101,26 @@ With very few exceptions, every class should have a parent class. OBO ontologies
 Most ontologies use the Web Ontology Language, which provides a range of powerful tools for make logical statements about terms and their relationships. Well-defined logical relations allow for automated reasoning over the ontology and data that uses it. The richer the logical definitions, the more work the reasoner can do, although there's a balance to strike between power and performance.
 
 If the term you want to use fits into the upper ontology and other relations that you're already using, then you're enriching the network of data in your application ontology. If the term doesn't fit, then you might not be adding much by using it. OBO ontologies strive to form a rich, interconnected network.
+
+
+### Term Status
+
+Terms have a "life cycle", starting with their creation and ending with their obsolescence. You should check the status of a term before using it.
+
+Terms that should no longer be used are marked as *obsolete* using the OWL [deprecated](http://www.w3.org/2002/07/owl#deprecated) annotation, and a reason may be given using the IAO [has obsolescence reason](http://purl.obolibrary.org/obo/IAO_0000231) annotation. The word "obsolete" is usually added to the label as a further warning. An obsolete term should *not* be used for new data! However it's best practise to maintain obsolete terms indefinitely at the same IRI to support old data. If a term you want to use is marked obsolete, check the annotations for a preferred replacement.
+
+Many OBO terms are annotated with IAO [has curation status](http://purl.obolibrary.org/obo/IAO_0000114) to indicate where the term is in its life cycle. A mature term is marked [ready for release](http://purl.obolibrary.org/obo/IAO_0000122), and other statuses indicate how close the term is to maturity. You should prefer terms with status closer to the top of this list:
+
+- [pending final vetting](http://purl.obolibrary.org/obo/IAO_0000125)
+- [metadata complete](http://purl.obolibrary.org/obo/IAO_0000120)
+- [metadata incomplete](http://purl.obolibrary.org/obo/IAO_0000123)
+- [requires discussion](http://purl.obolibrary.org/obo/IAO_0000428)
+- [organizational term](http://purl.obolibrary.org/obo/IAO_0000121)
+- [to be replaced with external ontology term](http://purl.obolibrary.org/obo/IAO_0000423)
+- [example to be eventually removed](http://purl.obolibrary.org/obo/IAO_0000002)
+- [uncurated](http://purl.obolibrary.org/obo/IAO_0000124)
+
+Problems that are keeping a term from being "ready for release" are often explained in an editor note.
 
 
 ### Community
