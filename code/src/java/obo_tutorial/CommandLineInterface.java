@@ -13,6 +13,7 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 
 import obo_tutorial.Extractor;
+import obo_tutorial.TermMapper;
 
 /**
  * A command-line interface for the OBO tutorial tools.
@@ -47,6 +48,8 @@ public class CommandLineInterface {
         printUsage(options);
       } else if (command.equals("extract")) {
         Extractor.extract(arguments);
+      } else if (command.equals("map")) {
+        TermMapper.map(arguments);
       } else {
         System.out.println("Unknown command: " + command + "\n");
         printUsage(options);
@@ -76,5 +79,6 @@ public class CommandLineInterface {
 
     System.out.println(String.format(fmt, "help", "print this message"));
     System.out.println(String.format(fmt, "extract", "<source-path> <terms-path> <target-path> <target-iri> extract a list of terms from the source ontology to a target ontology"));
+    System.out.println(String.format(fmt, "map", "<terms-path> <input-path> <output-path> map terms to IRIs"));
   }
 }

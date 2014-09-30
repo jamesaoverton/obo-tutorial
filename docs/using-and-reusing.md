@@ -149,6 +149,11 @@ So those are my three steps:
 
 This [Google spreadsheet](https://docs.google.com/spreadsheets/d/16_CcUQc5bgAiJn2VALGp537uQzavInd5tyqzTbNvQLI/edit?usp=sharing) shows the list of terms from [data-before.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-before.csv), the reference ontology terms I want to map them too, and the import technique I will use. It also shows how you can use the OntoMaton plugin to make searching easier.
 
+I've saved a copy of the Google spreadsheet to [terms.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/terms.csv), and I've written some example code for doing the conversion automatically: [TermMapper](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/TermMapper.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md) file to build everything, you can run it using a command like this:
+
+    cd examples
+    java -jar ../bin/obo-tutorial.jar map terms.csv data-before.csv results.csv
+
 
 ## Importing Terms
 

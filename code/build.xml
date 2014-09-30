@@ -65,8 +65,8 @@
     </jar>
     <copy file="${target}/${ant.project.name}.jar"
       tofile="../bin/${ant.project.name}.jar" overwrite="yes"/>
-    <delete file="${target}/${ant.project.name}.jar">
-    <delete file="${target}/dependencies.jar">
+    <delete file="${target}/${ant.project.name}.jar"/>
+    <delete file="${target}/dependencies.jar"/>
   </target>
 
   <!-- CLEAN -->
