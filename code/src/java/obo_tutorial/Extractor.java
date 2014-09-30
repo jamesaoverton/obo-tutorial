@@ -68,6 +68,16 @@ public class Extractor {
     extract(args.get(0), args.get(1), args.get(2), args.get(3));
   }
 
+  /**
+   * Given a source ontology and a file with a list of IRIs,
+   * extract those IRIs as a module from the source ontology,
+   * and save a new ontology with the given IRI to the given target file.
+   *
+   * @param sourcePath the path to the source ontology file
+   * @param listPath the path to the list of IRIs to extract
+   * @param targetPath the path to save the resulting ontology file
+   * @param targetIRI the IRI of the resulting ontology
+   */
   public static void extract(String sourcePath, String listPath,
       String targetPath, String targetIRI) {
     try {
