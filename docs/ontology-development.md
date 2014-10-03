@@ -18,7 +18,7 @@ Most OBO projects accept submissions of new terms via a "tracker". The Gene Onto
 
 ### Ontology Domains
 
-OBO ontology developers work hard to coordinate other projects. Each ontology has a specific scope, and it's important that you submit your term request or bug report to the right ontology project.
+OBO ontology developers work hard to coordinate with other OBO projects. Each ontology has a specific scope, and it's important that you submit your term request or bug report to the right ontology project.
 
 The [OBO home page](http://obofoundry.org) lists all the Foundry and Library ontologies with a note about their domains. The information page and home page for each ontology will have more information about their scope.
 
@@ -29,10 +29,12 @@ When searching for the right ontology for your new term, also keep in mind some 
 
 Open source software development makes heavy use of the Internet for collaboration. Public version control systems manage source code, and email lists help developers and users coordinate. You'll often see bug reports and feature requests on mailing lists, but for a project of any size these can quickly get out of control. So most open source projects have a "tracker" for handling bug reports and feature requests in a more structured way. GitHub, Google Code, SourceForge, and other software hosting sites all provide trackers, with different names and slightly different features.
 
-1. status: open, accepted, closed, fixed, wontfix
-2. creator: who
-3. owner: assigned to developer
-4. category, milestone, priority
+Each tracker "ticket" (aka "issue", "item", etc.) will have this information:
+
+1. status: e.g. open, accepted, closed, fixed, wontfix
+2. creator: the person who opened the ticket
+3. owner: the developer that the ticket is assigned to
+4. category, milestone, priority: used for sorting
 5. discussion thread: the most important part
 
 There will often be instructions for the tracker, saying what information should be included with new tracker tickets. Please follow those project-specific instructions. The next three sections have some general guidelines that apply to pretty much any OBO project.
@@ -44,16 +46,16 @@ If you're submitting a term to an ontology that uses TermGenie, such as the Gene
 
 Before you submit a new term, please search [OntoBee](http://www.ontobee.org) or [BioPortal](http://bioportal.bioontology.org) for the term you want and its synonyms. An OBO ontology might already include the term you want under a different name. Check the [OBO home page](http://obofoundry.org) to find appropriate ontologies.
 
-If you find a term that's close enough, but would like additions or changes made to it, please submit a new ticket to our issue tracker and be sure to include:
+If you find a term that's close enough, but would like additions or changes made to it, please submit a new ticket to the ontology project's issue tracker and be sure to include:
 
-A. the name of the term in the title of the ticket
-B. the [IRI](https://en.wikipedia.org/wiki/Internationalized_resource_identifier) that identifies the term (something like `http://purl.obolibrary.org/obo/OBI_0000070`)
-C. a description of the changes you would like to see and reasons for the changes
+1. the name of the term in the title of the ticket
+2. the [IRI](https://en.wikipedia.org/wiki/Internationalized_resource_identifier) that identifies the term (something like `http://purl.obolibrary.org/obo/OBI_0000070`)
+3. a description of the changes you would like to see and reasons for the changes
 
 
 ### New Terms
 
-If you don't find the term you're looking for, you should request a new term from the appropriate OBO project. The developers will need the following information before they can add your term (more details below):
+If you don't find the term you're looking for, you should request a new term from the appropriate OBO project. The developers will need the following information before they can add your term:
 
 1. editor preferred term: a unique, unambiguous label for the term in American English
 2. alternative terms: common synonyms or translations
@@ -71,13 +73,13 @@ We covered most of these [Assessing Ontologies and Terms for Reuse](https://gith
 
 3. The [textual definition](http://purl.obolibrary.org/obo/IAO_0000115) is the most important annotation because it expresses the meaning of your term. Definitions should have Aristotelian form: "An A is a B that C" where A is your new term, B is the parent term, and C spells out how A is a special kind of B. Every term needs one and only one textual definition, in American English, and definitions must be unique across the OBO Foundry. (See also the OBO Foundry Principle on [textual definitions](http://www.obofoundry.org/wiki/index.php/FP_006_textual_definitions).)
 
-4. Every textual definition should have a [definition source](http://purl.obolibrary.org/obo/IAO_0000119). If you created the definition, then that source would be you, and we'll record your name. If the definition was adapted from Wikipedia or some other website, then this annotation should contain the permanent URL. If it was adapted from a paper, use its [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) or PubMed URL.
+4. Every textual definition should have a [definition source](http://purl.obolibrary.org/obo/IAO_0000119). If you created the definition, then that source would be you. If the definition was adapted from Wikipedia or some other website, then this annotation should contain the permanent URL. If it was adapted from a paper, use its [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) or PubMed URL.
 
 5. The logical definition of a term is almost as important as the textual definition. I say "almost" because, in case of misunderstandings, the textual definition takes precedence. The logical definition expresses the meaning of the term in a machine-readable way using the [Web Ontology Language (OWL) version 2](http://www.w3.org/TR/owl2-overview/). Most OBO terms are OWL Classes (i.e. general nouns) and every one of these requires a single parent class. Many of them have more complex logical definitions. If you aren't comfortable specifying a logical definition, that's fine. Ontology developers will be happy to help create one based on your textual definition.
 
 6. One or more [example of usage](http://purl.obolibrary.org/obo/IAO_0000112) annotations can really clarify the meaning of a term. While the textual definition must be general enough to cover all cases, the examples provide specific cases that show the term in action. Examples of usage can be common cases that demonstrate the prototypical usage, or uncommon edge cases that delimit the scope of the term. While not strictly required, every new term should have one or more examples of usage.
 
-7. Finally, we want to give you credit for your work. We will add one or more [term editor](http://purl.obolibrary.org/obo/IAO_0000117) annotations with your name, and the names of others who have collaborated on creating this term.
+7. Finally, OBO developers want to give you credit for your work. They will add one or more [term editor](http://purl.obolibrary.org/obo/IAO_0000117) annotations with your name, and the names of others who have collaborated on creating the term.
 
 
 ### TermGenie
