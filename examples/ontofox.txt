@@ -20,7 +20,7 @@ includeAllIntermediates # include all the intermediate terms
 includeAllAxiomsRecursively
 
 
-##### Import terms from NCBI Taxononmy ######
+##### Import terms from NCBI Taxonomy ######
 
 [URI of the OWL(RDF/XML) output file]
 
@@ -38,7 +38,7 @@ http://purl.obolibrary.org/obo/NCBITaxon_2759 # Eukaryota
 includeNoIntermediates # do not include any intermediate terms
 
 [Source annotation URIs]
-includeAllAxiomsRecursively
+includeAllAnnotationProperties
 
 
 ##### Import terms from MPATH ######
@@ -54,13 +54,14 @@ http://purl.obolibrary.org/obo/MPATH_212 # inflammation
 http://purl.obolibrary.org/obo/MPATH_4   # necrosis
 
 [Top level source term URIs and target direct superclass URIs]
-http://purl.obolibrary.org/obo/MPATH_0   # pathological entity
+http://purl.obolibrary.org/obo/MPATH_603   # pathological anatomical entity
+http://purl.obolibrary.org/obo/MPATH_596   # pathological process
 
 [Source term retrieval setting]
 includeComputedIntermediates # include some intermediate terms
 
 [Source annotation URIs]
-includeAllAxiomsRecursively
+includeAllAnnotationProperties
 
 
 ##### Import terms from PATO ######
@@ -88,6 +89,6 @@ subClassOf http://purl.obolibrary.org/obo/BFO_0000019 # quality
 includeComputedIntermediates # include some intermediate terms
 
 [Source annotation URIs]
-includeAllAxiomsRecursively
+includeAllAnnotationProperties
 
 

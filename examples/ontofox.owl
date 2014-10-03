@@ -1075,18 +1075,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/MPATH_0 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MPATH_0">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pathological entity</rdfs:label>
-        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MPATH:0</oboInOwl:id>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pathological structure or process</obo:IAO_0000115>
-        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mouse_pathology.ontology</oboInOwl:hasOBONamespace>
-        <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/mpath.owl"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/MPATH_212 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MPATH_212">
@@ -1105,7 +1093,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MPATH_268">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">adenocarcinoma</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MPATH_0"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MPATH_603"/>
         <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MPATH:268</oboInOwl:id>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Malignant neoplasm of epithelial cells in glandular or glandlike pattern. (M-8140/3).</obo:IAO_0000115>
         <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mouse_pathology.ontology</oboInOwl:hasOBONamespace>
@@ -1126,12 +1114,26 @@
     </owl:Class>
     
 
+    <!-- http://purl.obolibrary.org/obo/MPATH_603 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MPATH_603">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pathological anatomical entity</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anatomically located instance of pathological response or entity.</obo:IAO_0000115>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MPATH:603</oboInOwl:id>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mouse_pathology.ontology</oboInOwl:hasOBONamespace>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anatomically located instance of pathological response or entity.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pathbase: Pathology Committee</oboInOwl:hasDbXref>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/MPATH_603"/>
+    </owl:Axiom>
+
 
     <!-- http://purl.obolibrary.org/obo/MPATH_596 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MPATH_596">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pathological process</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MPATH_0"/>
         <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MPATH:596</oboInOwl:id>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The organic response of tissues to external insult, injury or underlying genetic or epigenetic lesion.</obo:IAO_0000115>
         <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mouse_pathology.ontology</oboInOwl:hasOBONamespace>
