@@ -17,7 +17,7 @@ RDF is the standard for linked data graphs. There are several different standard
 
     <http://example.org/ns/A> <http://example.org/ns/B> <http://example.org/ns/C> .
 
-Notice the subject, predicate, and object, each of which is an IRI. The triple ends with a ".". This example is a little ugly and repetitive, but we can make it better using a CURIEs and defining a shared prefix:
+Notice the subject, predicate, and object, each of which is an IRI. The triple ends with a ".". This example is a little ugly and repetitive, but we can make it better using CURIEs and defining a shared prefix:
 
     @prefix ex: <http://example.org/ns/> .
     ex:A ex:B ex:C .
@@ -30,44 +30,44 @@ This says the same thing in a much more readable way. We can make multiple state
          ex:D "example" ;
          ex:E "1"^^xsd:integer .
 
-Here we have one subject (`ex:A`), three predicates (`ex:B`, `ex:D`, and `ex:E`), and three objects (`ex:C`, "example", and "1"^^xsd:integer), making three statements about `ex:A`.
+Here we have one subject (`ex:A`), three predicates (`ex:B`, `ex:D`, and `ex:E`), and three objects (`ex:C`, `"example"`, and `"1"^^xsd:integer`), making three statements about `ex:A`.
 
-So IRIs are the building blocks and RDF gives us rules for putting them together into triples that combine to form a graph. Turtle is one good way to write RDF down (to *serialize* it). [SPARQL](http://www.w3.org/TR/rdf-sparql-query/) is the query language for RDF, in the same way that [SQL](http://en.wikipedia.org/wiki/SQL) is the standard query language for databases (i.e. collections of tables). [RDF Schema (RDFS)](http://www.w3.org/TR/rdf-schema/) and [OWL](http://en.wikipedia.org/wiki/Web_Ontology_Language) extend RDF to work well with ontologies, but at root it's all just triples. All these are [W3C](http://www.w3.org) standards designed for sharing data across the web. There are many open source and proprietary tools for working with linked data.
+So IRIs are the building blocks, RDF gives us rules for putting them together into triples, and triples combine to form a graph. Turtle is one good way to write RDF down (to *serialize* it). [SPARQL](http://www.w3.org/TR/rdf-sparql-query/) is the query language for RDF, in the same way that [SQL](http://en.wikipedia.org/wiki/SQL) is the standard query language for databases (i.e. collections of tables). [RDF Schema (RDFS)](http://www.w3.org/TR/rdf-schema/) and [OWL](http://www.w3.org/TR/owl2-overview/) extend RDF to work well with ontologies, but at root it's all just triples. All these are [W3C](http://www.w3.org) standards designed for sharing data across the web. There are many open source and proprietary tools for working with linked data.
 
-Switching from tables to triples makes data sharing easier, but there are some things to keep in mind. In a table there's an natural order to the rows and to the columns, but a graph doesn't have that sort of natural order. A graph is a set of nodes, and for each pair of nodes there is a set of links (maybe empty). The direction of the link matters, but the order of the nodes and the links doesn't matter. So don't be surprised if you create a Turtle file with the triples in an order that makes sense to you, then process the file with linked data software and find that the result is in an entirely different order.
+Switching from tables to triples makes data sharing easier, but there are some things to keep in mind. In a table there's a natural order to the rows and to the columns, but a graph doesn't have a natural order. A graph is a set of nodes and a set of links (maybe empty) for each pair of nodes. The direction of the link matters, but the order of the nodes and the links doesn't matter. So don't be surprised if you create a Turtle file with the triples in an order that makes sense to you, then process the file with linked data software only to find that the result is in an entirely different order.
 
-Another important difference is the [open-world assumption](https://en.wikipedia.org/wiki/Open-world_assumption). Many programming languages and databases are built on the [closed-world assumption](https://en.wikipedia.org/wiki/Closed-world_assumption) that the system has comprehensive knowledge in its domain. For example, if a statement ABC is stored in the database then it is both known and true, but if ABC is not stored in the database then it is not known and assumed to be false. Linked data tools such as OWL do not make that assumption: if statement ABC is not known to be true, it could still be either true or false. This makes good sense when you're merging data across the internet, but it takes some getting used to.
+Another important difference is the [open-world assumption](https://en.wikipedia.org/wiki/Open-world_assumption). Many programming languages and databases are built on the [closed-world assumption](https://en.wikipedia.org/wiki/Closed-world_assumption) that the system has comprehensive knowledge in its domain. For example, if a statement ABC is stored in the database then it is both known and true, but if ABC is not stored in the database then it is not known and assumed to be false. Linked data tools such as OWL do not make that assumption: if statement ABC is not known to be true or known to be false, it could still be either true or false. This makes good sense when you're merging data across the Internet, but it takes some getting used to.
 
 
 ## Converting Relational Data to RDF
 
 Let's see how to convert our example data from table to triples. I like to do this in a few steps. The first step just does the basic translation from tables to triples -- row-column-cell to subject-precate-object and nothing more. These aren't very good triples. I call them "raw". But the raw triples are easy to work with and transform into better representations using standard linked data tools. The second step is to do exactly this, as we'll see in the next section.
 
-For the raw conversion we'll use some Java code with the [Apache Jena]() library. We'll start with [data-after.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-after.csv) and end with [data-raw.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-raw.ttl) (a Turtle file).
+For the raw conversion we'll use some Java code with the [Apache Jena](http://jena.apache.org) library. We'll start with [data-after.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-after.csv) and end with [data-raw.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-raw.ttl) (a Turtle file).
 
 Turtle is human-readable if we have a good set prefixes to shorten our IRIs into CURIEs. One convenient way to define the prefixes is in another Turtle file: see [prefixes.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/prefixes.ttl).
 
-The example code for the conversion is in [TripleConverter.java](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/TripleConverter.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md) file to build everything, you can run it using a command like this:
+The example code for the conversion is in [TripleConverter.java](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/TripleConverter.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md), you can run it using a command like this:
 
     cd examples
     java -jar ../bin/obo-tutorial.jar convert prefixes.ttl data-after.csv data-raw.ttl
 
-Here's part of [data-raw.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-raw.ttl) for one row:
+Here's part of [data-raw.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-raw.ttl) output file, for just one row:
 
-    study:row-1 a study:row ;
-      study:column-datetime      "2014-01-01T10:21:00-0500" ;
-      study:column-disease       obo:MPATH_268 ;
-      study:column-group         study:group-1 ;
-      study:column-investigator  <http://orcid.org/0000-0001-5139-5557> ;
-      study:column-organ         obo:UBERON_0002048 ;
-      study:column-protocol      obo:OBI_0600020 ;
-      study:column-qualifier     obo:PATO_0000396 ;
-      study:column-sex           obo:PATO_0000383 ;
-      study:column-species       obo:NCBITaxon_10116 ;
-      study:column-strain        study:F344N ;
-      study:column-subject       study:subject-12 .
+    tutorial:row-1 a tutorial:row ;
+      tutorial:column-datetime      "2014-01-01T10:21:00-0500" ;
+      tutorial:column-disease       obo:MPATH_268 ;
+      tutorial:column-group         tutorial:group-1 ;
+      tutorial:column-investigator  <http://orcid.org/0000-0001-5139-5557> ;
+      tutorial:column-organ         obo:UBERON_0002048 ;
+      tutorial:column-protocol      obo:OBI_0600020 ;
+      tutorial:column-qualifier     obo:PATO_0000396 ;
+      tutorial:column-sex           obo:PATO_0000383 ;
+      tutorial:column-species       obo:NCBITaxon_10116 ;
+      tutorial:column-strain        tutorial:F344N ;
+      tutorial:column-subject       tutorial:subject-12 .
 
-In the first line here `study:row-1 a study:row` means that `study:row-1` has `rdf:type` of `study:row` -- `a` is just a short form for `rdf:type`. As you can see, we have a statement for each cell, where the predicate is just the column. Most of the objects are CURIEs, but `datetime` is a literal string and `investigator` is a URI.
+In the first line here `tutorial:row-1 a tutorial:row` means that `tutorial:row-1` has `rdf:type` of `tutorial:row` -- `a` is just a short form for `rdf:type`. As you can see, we have a statement for each cell, where the predicate is just the column. Most of the objects are CURIEs, but `datetime` is a literal string and `investigator` is a URI.
 
 There are other ways to convert tables to triples. The W3C has a standard [R2RML: RDB to RDF Mapping Language](http://www.w3.org/TR/r2rml/) that has several [implementations](http://www.w3.org/2001/sw/rdb2rdf/wiki/Implementations). One powerful tool you can look into is [D2RQ](http://d2rq.org), a system for converting back and forth between relational databases and RDF. You can use D2RQ to keep your relational database but translate it to RDF on the fly, and query it using SPARQL instead of SQL. But for this sort of job you'll want to skip the raw triples and use better modelling, as we'll see below.
 
@@ -140,22 +140,22 @@ To learn more SPARQL, try the [Jena SPARQL Tutorial](https://jena.apache.org/tut
 
 The raw triples we've been working with let us use linked data technologies such as RDF and SPARQL with our data, but so far they're just a crude translation of the table into triples. We can do better.
 
-The key technology we're going to use is SPARQL Update. Just like SQL, you can use SPARQL to SELECT data, but it can also be used to INSERT data. To make this work we're going to use three RDF graphs:
+The key technology we're going to use is SPARQL Update. Just like SQL, you can use SPARQL to SELECT data and also to INSERT data. To make this work we're going to use three RDF graphs:
 
-1. the application ontology
-2. the raw triples
+1. the raw triples
+2. the application ontology
 3. the new model we're building
 
 Just as SQL lets you query over multiple tables, SPARQL lets you query over multiple graphs. We use the GRAPH keyword to indicate which graph to use. How do we name our graphs? You guessed it: with IRIs. These are the names we'll use for the respective graphs:
 
-1. tutorial:ontology
-2. tutorial:raw
+1. tutorial:raw
+2. tutorial:ontology
 3. tutorial:data
 
 Our SPARQL query uses the same prefixes as above. Instead of a SELECT block we have an INSERT block that basically uses Turtle syntax to specify the new data. Inside the WHERE block we have two GRAPH blocks: one to get data from the raw triples, and the other to get data from the application ontology. We also have a bunch of BIND statements to make some changes to the data before inserting it. Here's a simplified version:
 
     INSERT {
-      GRAPH study:data {
+      GRAPH tutorial:data {
         ?subject
           rdf:type        ?species ;
           rdfs:label      ?subject_label ;
@@ -166,13 +166,13 @@ Our SPARQL query uses the same prefixes as above. Instead of a SELECT block we h
       }
     }
     WHERE {
-      GRAPH study:raw {
+      GRAPH tutorial:raw {
         ?subject_row
-          study:column-subject ?subject ;
-          study:column-species ?species ;
-          study:column-organ   ?organ_type ;
+          tutorial:column-subject ?subject ;
+          tutorial:column-species ?species ;
+          tutorial:column-organ   ?organ_type ;
       }
-      GRAPH study:ontology {
+      GRAPH tutorial:ontology {
         ?organ_type
           rdfs:label ?organ_type_label .
       }
@@ -184,19 +184,19 @@ Our SPARQL query uses the same prefixes as above. Instead of a SELECT block we h
 
 And here's some simplified output Turtle data with some comments for clarity:
 
-    study:subject-31
+    tutorial:subject-31
       a               obo:NCBITaxon_10090 ;  # mouse
       rdfs:label      "subject 31" .
-    study:subject-31-organ
+    tutorial:subject-31-organ
       a                obo:UBERON_0007827 ;  # external nose
       rdfs:label       "subject 31 external nose" ;
-      obo:BFO_0000050  study:subject-31 .    # part of
+      obo:BFO_0000050  tutorial:subject-31 .    # part of
 
-The upshot is that we use the statements about each `study:row` to make statements about the subject and its organ. We've finally broken out of the rigid structure of the table into a flexible graph structure. In this small example we state that the subject is an instance of the NCBI's taxon "Mus musclus", that the organ is an instance of Uberon's "external nose", and that the organ is part of the subject.
+The upshot is that we use the statements about each `tutorial:row` in the raw graph to make statements about the subject and its organ in the new graph. We've finally broken out of the rigid structure of the table into a flexible graph structure. In this small example we state that the subject is an instance of the NCBI's taxon "Mus musclus", that the organ is an instance of Uberon's "external nose", and that the organ is part of the subject.
 
 The [model.rq](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/model.rq) file contains a longer example of a SPARQL Update query -- longer, but still not capturing all the information in the original table. The results are in [data-after.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-after.ttl). If you open that file with Protégé it will import the application ontology and you can see all the data at once.
 
-The example code is in [Modeller.java](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/Modeller.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md) file to build everything, you can run it using a command like this:
+The example code is in [Modeller.java](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/Modeller.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md), you can run it using a command like this:
 
     cd examples
     java -jar ../bin/obo-tutorial.jar model data-raw.ttl application.owl model.rq data-after.ttl
@@ -205,7 +205,7 @@ Now we have the tools to build sophisticated linked data representations of our 
 
 [TODO: Update the tutorial with more information about modelling instance data with OBO ontologies.]
 
-During development it's usually convenient to have several files and use imports, but for a final version a single file is often better. I've created a single [obo-tutorial.owl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/obo-tutorial.owl) file with both the application ontology and the
+During development it's usually convenient to have several files and use imports to link them together. But for a final version, a single file is often better. I've created a single [obo-tutorial.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/obo-tutorial.owl) file with both the application ontology and the
 
     cd examples
     java -jar ../bin/obo-tutorial.jar merge \
@@ -216,7 +216,7 @@ During development it's usually convenient to have several files and use imports
 
 ## Querying Instance Data with DL Query
 
-SPARQL can query any RDF data, and OWL is built on RDF, but SPARQL isn't always the best tool when using OWL. DL Query is specific to OWL and can take advantage of OWL's logical power.
+SPARQL can query over any RDF data, and OWL is built on RDF, but SPARQL isn't always the best tool when using OWL. DL Query is specific to OWL and can take advantage of OWL's logical power.
 
 TODO: Finish writing this section. In the meantime, here are some links to get you started:
 
@@ -237,7 +237,7 @@ One of the biggest benefits of using OWL is the availability of automated reason
 
 There's an art to balancing logical power with reasoner performance, which can take some trial and error.
 
-WARNING: The current version of the application ontology should reason properly (and quickly) using Protégé 4 and ELK. I ran into errors using Protégé 5 with ELK. I have not been able to make HermiT work for the current version, probably because the Uberon module we extract is too large and complex.
+WARNING: The current version of the application ontology should reason properly (and quickly) using Protégé 4 and ELK. You may see some warning about features that are not supported by ELK -- that's expected. I ran into errors using Protégé 5 with ELK. I have not been able to make HermiT work for the current version, probably because the Uberon module we extract is too large and complex.
 
 TODO: Finish writing this section.
 
