@@ -15,6 +15,8 @@ We use a single running example to keep things concrete: a spreadsheet of data a
 5. [Processing Data with Ontologies](https://github.com/jamesaoverton/obo-tutorial/blob/master/docs/processing-data.md)
 6. [Updating, Testing, and Releasing Ontologies](https://github.com/jamesaoverton/obo-tutorial/blob/master/docs/ontology-development.md)
 
+[**Download PDF and code**](https://github.com/jamesaoverton/obo-tutorial/releases/latest)
+
 NOTE: This is still a work in progress. Not all of the sections are complete.
 
 
