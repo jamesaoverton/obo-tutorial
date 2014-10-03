@@ -30,7 +30,6 @@ If you want to dig deeper, see [code/README.md](https://github.com/jamesaoverton
 Here's a quick overview of the repository:
 
 - `docs`: the tutorial content in [Markdown format](https://help.github.com/articles/github-flavored-markdown)
-- [`obo-tutorial.pdf`](https://github.com/jamesaoverton/obo-tutorial/raw/master/obo-tutorial.pdf): a PDF version of the full tutorial
 - `examples`: data and code files referred to in the tutorial
 - `images`: supporting images
 - `code`: more elaborate code examples to support the tutorial
