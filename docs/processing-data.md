@@ -244,3 +244,6 @@ TODO: Finish writing this section.
 - [OWL 2 reasoning profiles](http://www.w3.org/TR/owl2-profiles/)
 - [HermiT OWL reasoner](http://hermit-reasoner.com)
 - [ELK OWL reasoner](https://code.google.com/p/elk-reasoner/) very fast for basic OWL reasoning
+
+
+In the [final section](https://github.com/jamesaoverton/obo-tutorial/blob/master/docs/ontology-development.md) we'll see more about ontology development, such as requesting new terms, development workflows, and release processes.
