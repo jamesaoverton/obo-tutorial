@@ -1,0 +1,69 @@
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX obo:   <http://purl.obolibrary.org/obo/>
+PREFIX tutorial: <https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/obo-tutorial.owl#>
+
+INSERT {
+  GRAPH tutorial:data {
+    tutorial:data
+      rdf:type        owl:Ontology ;
+      owl:imports     <https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl> .
+    ?group
+      rdfs:label      ?group_label .
+    ?subject
+      rdf:type        ?species ;
+      rdfs:label      ?subject_label ;
+      tutorial:strain    ?strain ;
+      obo:RO_0000086  ?sex ;          # has quality
+      tutorial:group     ?group .
+    ?sex
+      rdf:type        ?sex_type ;
+      rdfs:label      ?sex_label .
+    ?organ
+      rdf:type        ?organ_type ;
+      rdfs:label      ?organ_label ;
+      obo:BFO_0000050 ?subject .     # part of
+    ?assay
+      rdf:type        ?assay_type ;
+      rdfs:label      ?assay_label ;
+      obo:OBI_0000293 ?subject ;     # has specified input
+      obo:IAO_0000136 ?organ .       # is about
+  }
+}
+WHERE {
+  GRAPH tutorial:raw {
+    ?subject_row
+      tutorial:column-datetime     ?datetime ;
+      tutorial:column-investigator ?investigator ;
+      tutorial:column-subject      ?subject ;
+      tutorial:column-species      ?species ;
+      tutorial:column-sex          ?sex_type ;
+      tutorial:column-group        ?group ;
+      tutorial:column-protocol     ?assay_type ;
+      tutorial:column-organ        ?organ_type ;
+      tutorial:column-disease      ?disease ;
+      tutorial:column-qualifier    ?qualifier .
+      #tutorial:column-comment      ?comment .
+  }
+  GRAPH tutorial:ontology {
+    ?assay_type
+      rdfs:label ?assay_type_label .
+    ?sex_type
+      rdfs:label ?sex_type_label .
+    ?organ_type
+      rdfs:label ?organ_type_label .
+  }
+  BIND (URI(CONCAT(STR(?subject), "-assay")) AS ?assay)
+  BIND (URI(CONCAT(STR(?subject), "-sex"))   AS ?sex)
+  BIND (URI(CONCAT(STR(?subject), "-organ")) AS ?organ)
+  BIND (CONCAT("subject ", REPLACE(STR(?subject), "^.*-", ""))
+        AS ?subject_label)
+  BIND (CONCAT("group ", REPLACE(STR(?group), "^.*-", ""))
+        AS ?group_label)
+  BIND (CONCAT(?subject_label, " ", ?assay_type_label)    AS ?assay_label)
+  BIND (CONCAT(?subject_label, " sex: ", ?sex_type_label) AS ?sex_label)
+  BIND (CONCAT(?subject_label, " ", ?organ_type_label)    AS ?organ_label)
+}
+

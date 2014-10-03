@@ -1,0 +1,73 @@
+@prefix obo:   <http://purl.obolibrary.org/obo/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tutorial: <https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/obo-tutorial.owl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+tutorial:group-1  rdfs:label  "group 1" .
+
+tutorial:subject-45  a  obo:NCBITaxon_10116 ;
+        rdfs:label      "subject 45" ;
+        obo:RO_0000086  tutorial:subject-45-sex ;
+        tutorial:group  tutorial:group-1 .
+
+tutorial:subject-31  a  obo:NCBITaxon_10090 ;
+        rdfs:label      "subject 31" ;
+        obo:RO_0000086  tutorial:subject-31-sex ;
+        tutorial:group  tutorial:group-2 .
+
+tutorial:group-2  rdfs:label  "group 2" .
+
+tutorial:subject-12  a  obo:NCBITaxon_10116 ;
+        rdfs:label      "subject 12" ;
+        obo:RO_0000086  tutorial:subject-12-sex ;
+        tutorial:group  tutorial:group-1 .
+
+tutorial:data  a     owl:Ontology ;
+        owl:imports  <https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl> .
+
+tutorial:subject-45-sex
+        a           obo:PATO_0000384 ;
+        rdfs:label  "subject 45 sex: male" .
+
+tutorial:subject-45-organ
+        a                obo:UBERON_0001235 ;
+        rdfs:label       "subject 45 adrenal cortex" ;
+        obo:BFO_0000050  tutorial:subject-45 .
+
+tutorial:subject-45-assay
+        a                obo:OBI_0600020 ;
+        rdfs:label       "subject 45 histology" ;
+        obo:IAO_0000136  tutorial:subject-45-organ ;
+        obo:OBI_0000293  tutorial:subject-45 .
+
+tutorial:subject-31-sex
+        a           obo:PATO_0000384 ;
+        rdfs:label  "subject 31 sex: male" .
+
+tutorial:subject-31-organ
+        a                obo:UBERON_0007827 ;
+        rdfs:label       "subject 31 external nose" ;
+        obo:BFO_0000050  tutorial:subject-31 .
+
+tutorial:subject-31-assay
+        a                obo:OBI_0600020 ;
+        rdfs:label       "subject 31 histology" ;
+        obo:IAO_0000136  tutorial:subject-31-organ ;
+        obo:OBI_0000293  tutorial:subject-31 .
+
+tutorial:subject-12-sex
+        a           obo:PATO_0000383 ;
+        rdfs:label  "subject 12 sex: female" .
+
+tutorial:subject-12-organ
+        a                obo:UBERON_0002048 ;
+        rdfs:label       "subject 12 lung" ;
+        obo:BFO_0000050  tutorial:subject-12 .
+
+tutorial:subject-12-assay
+        a                obo:OBI_0600020 ;
+        rdfs:label       "subject 12 histology" ;
+        obo:IAO_0000136  tutorial:subject-12-organ ;
+        obo:OBI_0000293  tutorial:subject-12 .
