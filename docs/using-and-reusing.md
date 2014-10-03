@@ -149,11 +149,12 @@ So those are my three steps:
 
 This [Google spreadsheet](https://docs.google.com/spreadsheets/d/16_CcUQc5bgAiJn2VALGp537uQzavInd5tyqzTbNvQLI/edit?usp=sharing) shows the list of terms from [data-before.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-before.csv), the reference ontology terms I want to map them too, and the import technique I will use. It also shows how you can use the OntoMaton plugin to make searching easier.
 
-I've saved a copy of the Google spreadsheet to [terms.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/terms.csv), and I've written some example code for doing the conversion automatically: [TermMapper](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/TermMapper.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md) file to build everything, you can run it using a command like this:
+I've saved a copy of the Google spreadsheet to [terms.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/terms.csv), and I've written some example code for doing the conversion automatically: [TermMapper](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/TermMapper.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md), you can run it using a command like this:
 
     cd examples
     java -jar ../bin/obo-tutorial.jar map terms.csv data-before.csv data-after.csv
 
+You can see the result in [data-after.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-after.csv).
 
 ## Importing Terms
 
@@ -263,7 +264,7 @@ This command will extract the terms listed in `uberon-terms.txt` and all their d
 First we saw how to find reference ontology terms and assess them. Then we saw how to create a "mapping" table for all our terms. And we just saw four techniques for importing reference ontology terms into our application ontology. The last step is to put all of this together and complete our application ontology.
 
 1. Open a new ontology
-2. Change its "Ontology IRI" to <https://github.com/jamesaoverton/obo-tutorial/raw/master/example/application.owl>
+2. Change its "Ontology IRI" to <https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl>
 3. Import three OWL files:
     - ontofox.owl
     - ontorat.owl
@@ -271,7 +272,7 @@ First we saw how to find reference ontology terms and assess them. Then we saw h
 4. Make adjustments: add terms, add annotations, *carefully* adjust the hierarchy
 5. Save the ontology to `application.owl`
 
-Or skip those steps and just look at the resulting [application.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/example/application.owl) file that I've created. The result includes all the terms listed in our `terms.csv` file, plus the dependencies that we want. I've also made adjustements to fit everything under BFO "entity" by adding `subClassOf` assertions here and there.
+Or skip those steps and just look at the resulting [application.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl) file that I've created. The result includes all the terms listed in our `terms.csv` file, plus the dependencies that we want. I've also made adjustements to fit everything under BFO "entity" by adding `subClassOf` assertions here and there.
 
 One application ontology can support many similar projects. In the [next section](https://github.com/jamesaoverton/obo-tutorial/blob/master/docs/processing-data.md) we'll see how to connect the data in the running example to the application ontology to take full advantage of it.
 
