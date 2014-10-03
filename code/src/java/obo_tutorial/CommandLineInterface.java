@@ -14,6 +14,9 @@ import org.apache.commons.cli.ParseException;
 
 import obo_tutorial.Extractor;
 import obo_tutorial.TermMapper;
+import obo_tutorial.TripleConverter;
+import obo_tutorial.Modeller;
+import obo_tutorial.Merger;
 
 /**
  * A command-line interface for the OBO tutorial tools.
@@ -50,6 +53,12 @@ public class CommandLineInterface {
         Extractor.extract(arguments);
       } else if (command.equals("map")) {
         TermMapper.map(arguments);
+      } else if (command.equals("convert")) {
+        TripleConverter.convert(arguments);
+      } else if (command.equals("model")) {
+        Modeller.convert(arguments);
+      } else if (command.equals("merge")) {
+        Merger.merge(arguments);
       } else {
         System.out.println("Unknown command: " + command + "\n");
         printUsage(options);
@@ -80,5 +89,8 @@ public class CommandLineInterface {
     System.out.println(String.format(fmt, "help", "print this message"));
     System.out.println(String.format(fmt, "extract", "<source-path> <terms-path> <target-path> <target-iri> extract a list of terms from the source ontology to a target ontology"));
     System.out.println(String.format(fmt, "map", "<terms-path> <input-path> <output-path> map terms to IRIs"));
+    System.out.println(String.format(fmt, "convert", "<prefix-path> <input-path> <output-path> convert table to triples"));
+    System.out.println(String.format(fmt, "model", "<data-path> <ontology-path> <sparql-path> <output-path> run SPARQL on triples"));
+    System.out.println(String.format(fmt, "merge", "<input-paths> <output-path> <output-iri> merge ontologies"));
   }
 }
