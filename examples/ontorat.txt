@@ -36,6 +36,6 @@ ObjectProperty:
 DataProperty:
 
 [Term URIs start with]
-https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl#
+https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/obo-tutorial.owl#
 
 [Auto-generated term ID]

@@ -4,12 +4,100 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:obo="http://purl.obolibrary.org/obo/">
     <owl:Ontology rdf:about="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl">
-        <owl:imports rdf:resource="https://github.com/jamesaoverton/obo-tutorial/examples/uberon-module.owl"/>
-        <owl:imports rdf:resource="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/ontofox.owl"/>
-        <owl:imports rdf:resource="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/ontorat.owl"/>
+        <owl:imports rdf:resource="ontofox.owl"/>
+        <owl:imports rdf:resource="ontorat.owl"/>
+        <owl:imports rdf:resource="uberon-module.owl"/>
     </owl:Ontology>
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0008150 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0008150"><!-- biological_process -->
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biological process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000007"/><!-- process -->
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/><!-- planned process -->
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any process specifically pertinent to the functioning of integrated living units: cells, tissues, organs, and organisms. A process is a collection of molecular events with a defined beginning and end.</obo:IAO_0000115>
+        <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biological_process</obo:IAO_0000111>
+        <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/go.owl"/>
+    </owl:Class>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/MPATH_596 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MPATH_596">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0008150"/>
+    </rdf:Description>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/MPATH_603 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MPATH_603">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
+    </rdf:Description>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0000015 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UBERON_0000015">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+    </rdf:Description>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0000104 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UBERON_0000104">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0008150"/>
+    </rdf:Description>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0000105 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UBERON_0000105">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0008150"/>
+    </rdf:Description>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0000464 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UBERON_0000464">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+    </rdf:Description>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0000465 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UBERON_0000465">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+    </rdf:Description>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0004458 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UBERON_0004458">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CARO_0001008"/>
+    </rdf:Description>
+
+
 </rdf:RDF>
 
 

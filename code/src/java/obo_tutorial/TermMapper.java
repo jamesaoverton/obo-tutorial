@@ -146,9 +146,9 @@ public class TermMapper {
             result.add(cell);
           }
         } else if (header.equals("subject")) {  // subject column
-          result.add("study:subject-" + cell);
+          result.add("tutorial:subject-" + cell);
         } else if (header.equals("group")) {    // group column
-          result.add("study:group-" + cell);
+          result.add("tutorial:group-" + cell);
         } else {                                // do nothing
           result.add(cell);
         }

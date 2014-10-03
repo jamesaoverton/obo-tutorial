@@ -1,8 +1,8 @@
 Local Term Label,Ontology Term Label,Ontology Term IRI,CURIE,Technique
 RAT,Rattus norvegicus,http://purl.obolibrary.org/obo/NCBITaxon_10116,obo:NCBITaxon_10116,MIREOT
 MOUSE,Mus musculus,http://purl.obolibrary.org/obo/NCBITaxon_10090,obo:NCBITaxon_10090,MIREOT
-F 344/N,,,study:F344N,QTT
-B6C3F1,,,study:B6C3F1,QTT
+F 344/N,,,tutorial:F344N,QTT
+B6C3F1,,,tutorial:B6C3F1,QTT
 FEMALE,female,http://purl.obolibrary.org/obo/PATO_0000383,obo:PATO_0000383,MIREOT
 MALE,male,http://purl.obolibrary.org/obo/PATO_0000384,obo:PATO_0000384,MIREOT
 HISTOPATHOLOGY,histology,http://purl.obolibrary.org/obo/OBI_0600020,obo:OBI_0600020,MIREOT

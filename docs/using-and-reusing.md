@@ -152,7 +152,7 @@ This [Google spreadsheet](https://docs.google.com/spreadsheets/d/16_CcUQc5bgAiJn
 I've saved a copy of the Google spreadsheet to [terms.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/terms.csv), and I've written some example code for doing the conversion automatically: [TermMapper](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/TermMapper.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md) file to build everything, you can run it using a command like this:
 
     cd examples
-    java -jar ../bin/obo-tutorial.jar map terms.csv data-before.csv results.csv
+    java -jar ../bin/obo-tutorial.jar map terms.csv data-before.csv data-after.csv
 
 
 ## Importing Terms
@@ -247,10 +247,11 @@ Using this technique requires using OWLAPI, which means writing some Java code. 
 - sample command -- make sure you download [Uberon](purl.obolibrary.org/obo/uberon.owl) first (it's about 60MB):
 
 ```
-java -jar bin/obo-tutorial.jar extract \
-  examples/uberon.owl \
-  examples/uberon-terms.txt \
-  examples/uberon-module.owl \
+cd examples
+java -jar ../bin/obo-tutorial.jar extract \
+  uberon.owl \
+  uberon-terms.txt \
+  uberon-module.owl \
   "https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/uberon-module.owl"
 ```
     
@@ -267,10 +268,10 @@ First we saw how to find reference ontology terms and assess them. Then we saw h
     - ontofox.owl
     - ontorat.owl
     - uberon-module.owl
-4. Add any other annotations or terms you like
+4. Make adjustments: add terms, add annotations, *carefully* adjust the hierarchy
 5. Save the ontology to `application.owl`
 
-Or skip those steps and just look at the resulting [application.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/example/application.owl) file I've created. The result includes all the terms listed in our `terms.csv` file, plus the dependencies that we want.
+Or skip those steps and just look at the resulting [application.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/example/application.owl) file that I've created. The result includes all the terms listed in our `terms.csv` file, plus the dependencies that we want. I've also made adjustements to fit everything under BFO "entity" by adding `subClassOf` assertions here and there.
 
 One application ontology can support many similar projects. In the [next section](https://github.com/jamesaoverton/obo-tutorial/blob/master/docs/processing-data.md) we'll see how to connect the data in the running example to the application ontology to take full advantage of it.
 

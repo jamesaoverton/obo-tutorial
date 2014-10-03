@@ -1,4 +1,4 @@
-datetime,investigator,subject,species,strain,sex,group,protocol,organ,disease,qualifier,comment
-2014-01-01T10:21:00-0500,http://orcid.org/0000-0001-5139-5557,study:subject-12,obo:NCBITaxon_10116,study:F344N,obo:PATO_0000383,study:group-1,obo:OBI_0600020,obo:UBERON_0002048,obo:MPATH_268,obo:PATO_0000396,
-2014-01-01T10:30:00-0500,http://orcid.org/0000-0001-5139-5557,study:subject-31,obo:NCBITaxon_10090,study:B6C3F1,obo:PATO_0000384,study:group-2,obo:OBI_0600020,obo:UBERON_0007827,obo:MPATH_212,obo:PATO_0000394,
-2014-01-01T10:45:00-0500,http://orcid.org/0000-0001-5139-5557,study:subject-45,obo:NCBITaxon_10116,study:F344N,obo:PATO_0000384,study:group-1,obo:OBI_0600020,obo:UBERON_0001235,obo:MPATH_4,obo:PATO_0000395,
+"datetime","investigator","subject","species","strain","sex","group","protocol","organ","disease","qualifier","comment"
+"2014-01-01T10:21:00-0500","http://orcid.org/0000-0001-5139-5557","tutorial:subject-12","obo:NCBITaxon_10116","tutorial:F344N","obo:PATO_0000383","tutorial:group-1","obo:OBI_0600020","obo:UBERON_0002048","obo:MPATH_268","obo:PATO_0000396",""
+"2014-01-01T10:30:00-0500","http://orcid.org/0000-0001-5139-5557","tutorial:subject-31","obo:NCBITaxon_10090","tutorial:B6C3F1","obo:PATO_0000384","tutorial:group-2","obo:OBI_0600020","obo:UBERON_0007827","obo:MPATH_212","obo:PATO_0000394",""
+"2014-01-01T10:45:00-0500","http://orcid.org/0000-0001-5139-5557","tutorial:subject-45","obo:NCBITaxon_10116","tutorial:F344N","obo:PATO_0000384","tutorial:group-1","obo:OBI_0600020","obo:UBERON_0001235","obo:MPATH_4","obo:PATO_0000395",""

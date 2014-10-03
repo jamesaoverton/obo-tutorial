@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://purl.obolibrary.org/obo/ontorat_0000001.owl#"
-     xml:base="http://purl.obolibrary.org/obo/ontorat_0000001.owl"
+<rdf:RDF xmlns="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/ontorat.owl#"
+     xml:base="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/ontorat.owl"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -157,9 +157,9 @@
     
 
 
-    <!-- https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl#B6C3F1 -->
+    <!-- https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/obo-tutorial.owl#B6C3F1 -->
 
-    <owl:Class rdf:about="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl#B6C3F1">
+    <owl:Class rdf:about="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/obo-tutorial.owl#B6C3F1">
         <rdfs:label>B6C3F1</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_10090"/>
         <rdfs:seeAlso>http://jaxmice.jax.org/strain/100010.html</rdfs:seeAlso>
@@ -171,9 +171,9 @@
     
 
 
-    <!-- https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl#F344N -->
+    <!-- https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/obo-tutorial.owl#F344N -->
 
-    <owl:Class rdf:about="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl#F344N">
+    <owl:Class rdf:about="https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/obo-tutorial.owl#F344N">
         <rdfs:label>F 344/N</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_10116"/>
         <obo:IAO_0000115>An inbred strain of rat used in many scientific investigations.</obo:IAO_0000115>
