@@ -1,3 +1,6 @@
 http://purl.obolibrary.org/obo/UBERON_0002048 lung
 http://purl.obolibrary.org/obo/UBERON_0007827 external nose
 http://purl.obolibrary.org/obo/UBERON_0001235 adrenal cortex
+http://purl.obolibrary.org/obo/UBERON_0000465 material anatomical entity
+http://purl.obolibrary.org/obo/UBERON_0000104 life cycle
+http://purl.obolibrary.org/obo/UBERON_0000105 life cycle stage

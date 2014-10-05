@@ -240,24 +240,27 @@ Here's a screenshot from the latest Protégé 5 beta release importing the 2014-
 
 Sometimes you want to import too many terms for OntoFox, but the target ontology is too large to import all of it. There's a tool you can use in this middle case: the [OWLAPI](http://owlapi.sourceforge.net)'s [SyntacticLocalityModuleExtractor](http://owlapi.sourceforge.net/javadoc/index.html?uk/ac/manchester/cs/owlapi/modularity/SyntacticLocalityModuleExtractor.html). Given an ontology and a set of terms to extract, it will create a "module" with just those terms and the terms they depend on. These dependencies are recursive, so the tool will take your list of terms, add all the terms they depend on, then add all the terms those dependencies depend on, and so on until it finds a closed set of terms. The resulting ontology can be saved to an OWL file and imported into your application ontology.
 
-Using this technique requires using OWLAPI, which means writing some Java code. There's no web service to do it for you. I've provided an example:
+Using this technique requires using OWLAPI, which means writing some Java code. There's no web service to do it for you, but I've provided some example code.
+
+If the ontology has many logical axioms, the extracted module might still be too big. To reduce the number of logical axioms we can use one of the many commands provided by [owltools](http://owltools.googlecode.com). The `--make-subset-by-properties` command takes a list of OWL Object Properties to keep, and removes all the rest.
+
+If you want to try this, download the latest [owltools-runner-all.jar](http://build.berkeleybop.org/view/Software/job/owltools/lastSuccessfulBuild/artifact/owltools/OWLTools-Runner/bin/owltools-runner-all.jar), or [build it yourself](https://code.google.com/p/owltools/wiki/MavenHowTo), and put the file in the `bin` directory of this tutorial.
+
+Let's see this in action. First download [Uberon](purl.obolibrary.org/obo/uberon.owl) (it's about 60MB) to the `examples` directory, then `cd` to the `examples` directory. The second command  will use owltools to keep only `part_of` and `has_part` from Uberon. The third command will extract just the list of terms we want:
+
+    cd examples
+    java -jar ../bin/owltools-runner-all.jar uberon.owl --make-subset-by-properties BFO:0000050 BFO:0000051 -o uberon-subset.owl
+    java -jar ../bin/obo-tutorial.jar extract \
+      uberon-subset.owl \
+      uberon-terms.txt \
+      uberon-module.owl \
+      "https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/uberon-module.owl"
+
+The result is the [uberon-module.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/uberon-module.owl) file, with all the terms listed in [uberon-terms.txt](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/uberon-terms.txt) and all their `part_of/has_part` dependencies. To learn more see:
 
 - short official example (PDF) [The Rough Guide to the OWL API](http://owlapi.sourceforge.net/owled2011_tutorial.pdf) 
-- full example: [Extractor.java](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/Extractor.java)
-- list of terms to extract: [uberon-terms.txt](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/uberon-terms.txt)
-- sample command -- make sure you download [Uberon](purl.obolibrary.org/obo/uberon.owl) first (it's about 60MB):
+- example code: [Extractor.java](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/Extractor.java)
 
-```
-cd examples
-java -jar ../bin/obo-tutorial.jar extract \
-  uberon.owl \
-  uberon-terms.txt \
-  uberon-module.owl \
-  "https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/uberon-module.owl"
-```
-    
-This command will extract the terms listed in `uberon-terms.txt` and all their dependencies into the [uberon-module.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/uberon-module.owl) file. Because Uberon has many logical axioms linking terms, there are many dependencies, and the result is more than 2MB.
-    
 
 ## Putting it all Together
 
