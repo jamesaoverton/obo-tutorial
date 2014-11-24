@@ -26,7 +26,7 @@ OBO ontologies are freely distributed, and there's a number of different web sit
 
 ### OntoMaton
 
-[OntoMaton](https://isatools.wordpress.com/2012/07/13/introducing-ontomaton-ontology-search-tagging-for-google-spreadsheets/) is a useful plugin for [Google Spreadsheets](https://docs.google.com/spreadsheets/). It uses BioPortal to find and autocomplete terms in selected columns of your sheet. You can also configure it to use only the ontologies you prefer, such as only OBO ontologies. Restrict to the smallest set of ontologies you can to improve search speed. Use the term links to check their definitions! When I have a list of terms I want to map, it saves to setup a new Google spreadsheet with OntoMaton configured to the ontologies I want to use.
+[OntoMaton](https://github.com/ISA-tools/OntoMaton#readme) is a useful plugin for [Google Spreadsheets](https://docs.google.com/spreadsheets/). It uses BioPortal to find and autocomplete terms in selected columns of your sheet. You can also configure it to use only the ontologies you prefer, such as only OBO ontologies. Restrict to the smallest set of ontologies you can to improve search speed. Use the term links to check their definitions! When I have a list of terms I want to map, it saves to setup a new Google spreadsheet with OntoMaton configured to the ontologies I want to use.
 
 ![OntoMaton screenshot](../images/ontomaton.png)
 
