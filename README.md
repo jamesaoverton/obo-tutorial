@@ -49,7 +49,7 @@ Corrections, improvements, suggestions, bug reports, etc. are all very much appr
 
 ## License
 
-Copyright © 2014, James A. Overton
+Copyright © 2015, James A. Overton
 
 Distributed under the CC-by 3.0 License: <https://creativecommons.org/licenses/by/3.0/>
 
