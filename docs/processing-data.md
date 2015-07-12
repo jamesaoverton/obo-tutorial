@@ -7,7 +7,7 @@ In the [previous section](https://github.com/jamesaoverton/obo-tutorial/blob/mas
 
 Ontologies are designed to support data sharing. There's a lot of scientific data in tables, such as spreadsheets and relational databases. But tables are hard to share. Even if we use IRIs as global names instead of local names, as we do in [data-after.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-after.csv), there's still the rigid structure of columns to deal with -- you can't merge two tables until they have the same columns in the same order.
 
-It's easier to share data if we have a more flexible data structure. Linked data standards use a very flexible data structure: graphs, in the sense of "networks". There are many other meanings for the word "graph" but here we mean a set of nodes connected by links, sometimes called vertices and edges. In a graph it's the connections between nodes that carry most of the information, and the order isn't important. When two graphs share some nodes, it's very easy to merge them into a single graph.
+It's easier to share data if we have a more flexible data structure. Linked data standards use a very flexible data structure: graphs, in the sense of "networks". There are many other meanings for the word "graph" but here we mean a set of nodes connected by links, sometimes called "vertices" and "edges". In a graph it's the connections between nodes that carry most of the information, and the order isn't important. When two graphs share some nodes, it's very easy to merge them into a single graph.
 
 The [Resource Description Framework (RDF)](http://www.w3.org/RDF/) is the fundamental linked data standard for graphs. An RDF graph is build up from nodes and links between them. In RDF we call the first node the *subject*, the link the *predicate*, and the second node the *object*. The direction of the link is important! The subject is named with an IRI. The type of predicate is named with another IRI. And the object can be a node with an IRI or a *literal* with data such as a string or integer. Literals can have a data type, specified by an IRI. We call the whole thing a *triple*: subject-predicate-object. The predicate expresses some relationship between the subject and the object, so we can think of the triple as making a statement: subject A has relation B to object C.
 
@@ -41,11 +41,11 @@ Another important difference is the [open-world assumption](https://en.wikipedia
 
 ## Converting Relational Data to RDF
 
-Let's see how to convert our example data from table to triples. I like to do this in a few steps. The first step just does the basic translation from tables to triples -- row-column-cell to subject-precate-object and nothing more. These aren't very good triples. I call them "raw". But the raw triples are easy to work with and transform into better representations using standard linked data tools. The second step is to do exactly this, as we'll see in the next section.
+Let's see how to convert our example data from table to triples. I like to do this in a few steps. The first step just does the basic translation from tables to triples -- row-column-cell to subject-predicate-object and nothing more. These aren't very good triples. I call them "raw". But the raw triples are easy to work with and transform into better representations using standard linked data tools. The second step is to do exactly this, as we'll see in the next section.
 
 For the raw conversion we'll use some Java code with the [Apache Jena](http://jena.apache.org) library. We'll start with [data-after.csv](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-after.csv) and end with [data-raw.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/data-raw.ttl) (a Turtle file).
 
-Turtle is human-readable if we have a good set prefixes to shorten our IRIs into CURIEs. One convenient way to define the prefixes is in another Turtle file: see [prefixes.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/prefixes.ttl).
+Turtle is human-readable if we have a good set prefixes to shorten our IRIs to CURIEs. One convenient way to define the prefixes is in another Turtle file: see [prefixes.ttl](https://github.com/jamesaoverton/obo-tutorial/blob/master/examples/prefixes.ttl).
 
 The example code for the conversion is in [TripleConverter.java](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/src/java/obo_tutorial/TripleConverter.java). If you follow the instructions in the [code/README.md](https://github.com/jamesaoverton/obo-tutorial/blob/master/code/README.md), you can run it using a command like this:
 
@@ -148,11 +148,11 @@ The key technology we're going to use is SPARQL Update. Just like SQL, you can u
 
 Just as SQL lets you query over multiple tables, SPARQL lets you query over multiple graphs. We use the GRAPH keyword to indicate which graph to use. How do we name our graphs? You guessed it: with IRIs. These are the names we'll use for the respective graphs:
 
-1. tutorial:raw
-2. tutorial:ontology
-3. tutorial:data
+1. `tutorial:raw`
+2. `tutorial:ontology`
+3. `tutorial:data`
 
-Our SPARQL query uses the same prefixes as above. Instead of a SELECT block we have an INSERT block that basically uses Turtle syntax to specify the new data. Inside the WHERE block we have two GRAPH blocks: one to get data from the raw triples, and the other to get data from the application ontology. We also have a bunch of BIND statements to make some changes to the data before inserting it. Here's a simplified version:
+Our SPARQL query uses the same prefixes as above. Instead of a SELECT block we have an INSERT block that basically uses Turtle syntax with the matched variables to specify the new data. Inside the WHERE block we have two GRAPH blocks: one to get data from the raw triples, and the other to get data from the application ontology. We also have a bunch of BIND statements to make some changes to the data before inserting it. Here's a simplified version:
 
     INSERT {
       GRAPH tutorial:data {
@@ -190,7 +190,7 @@ And here's some simplified output Turtle data with some comments for clarity:
     tutorial:subject-31-organ
       a                obo:UBERON_0007827 ;  # external nose
       rdfs:label       "subject 31 external nose" ;
-      obo:BFO_0000050  tutorial:subject-31 .    # part of
+      obo:BFO_0000050  tutorial:subject-31 . # part of
 
 The upshot is that we use the statements about each `tutorial:row` in the raw graph to make statements about the subject and its organ in the new graph. We've finally broken out of the rigid structure of the table into a flexible graph structure. In this small example we state that the subject is an instance of the NCBI's taxon "Mus musclus", that the organ is an instance of Uberon's "external nose", and that the organ is part of the subject.
 

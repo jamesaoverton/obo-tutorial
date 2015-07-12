@@ -49,7 +49,7 @@ includeAllAnnotationProperties
 MPATH
 
 [Low level source term URIs]
-http://purl.obolibrary.org/obo/MPATH_268 # adenocrcinoma
+http://purl.obolibrary.org/obo/MPATH_268 # adenocarcinoma
 http://purl.obolibrary.org/obo/MPATH_212 # inflammation
 http://purl.obolibrary.org/obo/MPATH_4   # necrosis
 

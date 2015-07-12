@@ -46,7 +46,7 @@ If you're submitting a term to an ontology that uses TermGenie, such as the Gene
 
 Before you submit a new term, please search [OntoBee](http://www.ontobee.org) or [BioPortal](http://bioportal.bioontology.org) for the term you want and its synonyms. An OBO ontology might already include the term you want under a different name. Check the [OBO home page](http://obofoundry.org) to find appropriate ontologies.
 
-If you find a term that's close enough, but would like additions or changes made to it, please submit a new ticket to the ontology project's issue tracker and be sure to include:
+If you find a term that's close, but would like additions or changes made to it, please submit a new ticket to the ontology project's issue tracker and be sure to include:
 
 1. the name of the term in the title of the ticket
 2. the [IRI](https://en.wikipedia.org/wiki/Internationalized_resource_identifier) that identifies the term (something like `http://purl.obolibrary.org/obo/OBI_0000070`)
@@ -75,9 +75,9 @@ We covered most of these [Assessing Ontologies and Terms for Reuse](https://gith
 
 4. Every textual definition should have a [definition source](http://purl.obolibrary.org/obo/IAO_0000119). If you created the definition, then that source would be you. If the definition was adapted from Wikipedia or some other website, then this annotation should contain the permanent URL. If it was adapted from a paper, use its [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier) or PubMed URL.
 
-5. The logical definition of a term is almost as important as the textual definition. I say "almost" because, in case of misunderstandings, the textual definition takes precedence. The logical definition expresses the meaning of the term in a machine-readable way using the [Web Ontology Language (OWL) version 2](http://www.w3.org/TR/owl2-overview/). Most OBO terms are OWL Classes (i.e. general nouns) and every one of these requires a single parent class. Many of them have more complex logical definitions. If you aren't comfortable specifying a logical definition, that's fine. Ontology developers will be happy to help create one based on your textual definition.
+5. The logical definition of a term is almost as important as the textual definition. I say "almost" because, in case of misunderstandings, the textual definition takes precedence. The logical definition expresses the meaning of the term in a machine-readable way using the [Web Ontology Language (OWL) version 2](http://www.w3.org/TR/owl2-overview/). Most OBO terms are OWL Classes (i.e. general nouns) and (with few exceptions) they requires a single parent class. Many of them have more complex logical definitions. If you aren't comfortable specifying a logical definition, that's fine. Ontology developers will be happy to help create one based on your textual definition.
 
-6. One or more [example of usage](http://purl.obolibrary.org/obo/IAO_0000112) annotations can really clarify the meaning of a term. While the textual definition must be general enough to cover all cases, the examples provide specific cases that show the term in action. Examples of usage can be common cases that demonstrate the prototypical usage, or uncommon edge cases that delimit the scope of the term. While not strictly required, every new term should have one or more examples of usage.
+6. One or more [example of usage](http://purl.obolibrary.org/obo/IAO_0000112) annotations can really clarify the meaning of a term. While the textual definition must be general enough to cover all cases, the examples provide specific cases that show the term in use. Examples of usage can be common cases that demonstrate the prototypical usage, or uncommon edge cases that delimit the scope of the term. While not strictly required, every new term should have one or more examples of usage.
 
 7. Finally, OBO developers want to give you credit for your work. They will add one or more [term editor](http://purl.obolibrary.org/obo/IAO_0000117) annotations with your name, and the names of others who have collaborated on creating the term.
 
