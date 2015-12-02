@@ -106,9 +106,36 @@ TODO: Finish writing these sections.
 - http://douroucouli.wordpress.com/2012/02/16/ontologies-and-continuous-integration/
 
 ## Publishing Ontologies
+
+The first step in publishing an ontology is to create a release version. The process is similar to the software release cycle. Some groups have an automated ontology publishing cycle (e.g. the GO is on a nightly cycle), but most groups choose when to publish.
+
+There are a number of tools to help you with making releases:
+
+ * [OWLTools](https://github.com/owlcollab/owltools/) and [OORT](http://code.google.com/p/owltools/wiki/OortIntro)
+ * [ROBOT](https://github.com/ontodev/robot/)
+
+Many ontologies are transitioning from the older OWLTools/OORT methods to the newer ROBOT.
+
+Consult the documentation for these tools on specific details. The general principle is the same for all:
+
+ * Ontology developers edit a *source* version of the ontology. This is often called something like `foo-edit.owl`
+ * This source version is compiled down to make the *release* versions, e.g. `foo.owl`. Note that the name is always the same as the ontology ID space, all in lowercase. Please follow this convention for your release files.
+ * The release version includes links inferred by a reasoner and asserted in the ontology
+ * Many groups also publish an `.obo` version. As this format is less expressive than OWL, it is not guaranteed to be complete
+ * Some groups also publish additional products, including *subsets* (slims) or a *basic* version intended for bioinformatics applications and graph visualization
+ * The release version should always have an `owl:versionIRI` tag based on the date (YYYY-MM-DD format).
+
+After the release version is prepared there are different methods for publishing this. A common method is to publish directly on github by committing the release file. Some groups also use the github release mechanism. Practices vary here, we are working on consolidating documentation. For now it can be a good idea to look at existing ontologies. Here are some examples. Note that many ontologies have a README file specifically for ontology editors that document the release practices for that ontology. These are linked here:
+
+ * [pato](https://github.com/pato-ontology/pato/) -- [README-editors](https://github.com/pato-ontology/pato/blob/master/src/ontology/README-editors.md)
+ * OBI TODO
+ * OTHERS TODO
+ 
+
+
 ## Managing PURLs
 
-- http://purl.obofoundry.org
+- https://github.com/OBOFoundry/purl.obolibrary.org/
 
 ## Release Workflows
 
