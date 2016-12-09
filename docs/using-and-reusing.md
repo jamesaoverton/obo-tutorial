@@ -64,14 +64,14 @@ Once you find a term that might be suitable, there are some things that you shou
 
 The first question is: can I use this term in my application ontology? This raises a series of questions about copyright.
 
-OBO ontologies are intended to be shared and required to be [open](http://www.obofoundry.org/wiki/index.php/FP_001_open), in the sense of "open source". The [Creative Commons CC-by 3.0](https://creativecommons.org/licenses/by/3.0/) license is recommended for OBO projects, although there's some variation. We expect people who use OBO ontology terms to use the official IRI for that term. We also expect users to respect common standards in the scientific community for giving credit to ontology developers for their work, such as citing the ontology in your publications. (Most ontologies have a "release paper" in a journal that you can use for citations. Check the ontology's website.)
+OBO ontologies are intended to be shared and required to be [open](http://obofoundry.github.io/principles/fp-001-open.html), in the sense of "open source". The [Creative Commons CC-by 3.0](https://creativecommons.org/licenses/by/3.0/) license is recommended for OBO projects, although there's some variation. We expect people who use OBO ontology terms to use the official IRI for that term. We also expect users to respect common standards in the scientific community for giving credit to ontology developers for their work, such as citing the ontology in your publications. (Most ontologies have a "release paper" in a journal that you can use for citations. Check the ontology's website.)
 
 
 ### PURLs
 
 Every term should have a single, official IRI that identifies it, often called a "PURL". When you put that IRI into a web browser you should be directed to a useful webpage or file. Even IRIs for obsolete terms should continue to point to something useful. If the term you want to use doesn't have a reliable, permanent identifier, than how can you be sure that you and the rest of the community are using the same term?
 
-There is an OBO principle for [unique identifiers](http://www.obofoundry.org/wiki/index.php/FP_003_URIs) and a [identifier policy](http://www.obofoundry.org/id-policy.shtml) with the technical details.
+There is an OBO principle for [unique identifiers](http://obofoundry.github.io/principles/fp-003-uris.html) and a [identifier policy](http://www.obofoundry.org/id-policy.html) with the technical details.
 
 
 ### Labels
