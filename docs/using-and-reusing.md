@@ -80,7 +80,7 @@ Every term should have a single, official label. It can have many synonyms, tran
 
 Labels are important, but the definition is even more important, so don't stop at reading the label!
 
-OBO ontology terms all have an `rdfs:label` value. Some OBO ontologies use the IAO [editor preferred term](http://purl.obolibrary.org/obo/IAO_0000111) annotation to store the unique label, so that the `rdfs:label` can be changed to an alternative term suitable for particular use cases. There are also [naming conventions](http://www.obofoundry.org/wiki/index.php/Naming) for OBO terms, and an [IAO ontology metadata](https://code.google.com/p/information-artifact-ontology/wiki/OntologyMetadata) page.
+OBO ontology terms all have an `rdfs:label` value. Some OBO ontologies use the IAO [editor preferred term](http://purl.obolibrary.org/obo/IAO_0000111) annotation to store the unique label, so that the `rdfs:label` can be changed to an alternative term suitable for particular use cases. There are also [naming conventions](http://obofoundry.github.io/principles/fp-012-naming-conventions.html) for OBO terms, and an [IAO ontology metadata](https://code.google.com/p/information-artifact-ontology/wiki/OntologyMetadata) page.
 
 
 ### Textual Definitions
