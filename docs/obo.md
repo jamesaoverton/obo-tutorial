@@ -27,12 +27,8 @@ OBO projects all share a commitment to a set of principles and best practises.
 TODO: Write a summary of the shared principles and practises. In the meantime, you can peruse these links.
 
 - The [OBO Foundry](http://obofoundry.org)
-- [OBO Foundry Principles](http://wiki.obofoundry.org/wiki/index.php/Category:Accepted)
-- [OBO Foundry Operations Committee](https://code.google.com/p/obo-foundry-operations-committee)
-    - [Editorial Working Group](https://code.google.com/p/obo-foundry-operations-committee/wiki/EditorialWG)
-    - [Technical Working Group](https://code.google.com/p/obo-foundry-operations-committee/wiki/TechnicalWG)
-    - [Outreach Working Group](https://code.google.com/p/obo-foundry-operations-committee/wiki/OutreachWG)
-
+- [OBO Foundry Principles](http://obofoundry.github.io/principles/fp-000-summary.html)
+- [OBO Foundry Operations Committee](http://obofoundry.github.io/docs/OperationsCommittee.html)
 
 Now let's see how to [use and reuse ontology terms](https://github.com/jamesaoverton/obo-tutorial/blob/master/docs/using-and-reusing.md).
 
