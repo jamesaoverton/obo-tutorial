@@ -38,10 +38,9 @@ Ontobee lists all the OBO ontologies and a few more, but the official list is at
 Several of the OBO principles and best practises are based on open source software development best practises. These include keeping files in publicly accessible version control systems that track and store every change to the ontology. Most OBO projects use one of these websites for hosting project files in version control:
 
 - [GitHub](https://github.com)
-- [Google Code](https://code.google.com) (<b>[Shutting down soon!](http://google-opensource.blogspot.ca/2015/03/farewell-to-google-code.html)</b>)
 - [SourceForge](http://sourceforge.net)
 
-GitHub is built around the [Git](http://www.git-scm.com) distributed version control system. Google Code and Sourceforge also support Git, but more often you'll see project using [Subversion (SVN)](https://subversion.apache.org). Version control systems can be intimidating at first, but there are tutorials and applications to make life easier for beginners. If you're an absolute beginner, don't worry! You can probably do everything you'll need to do with just your web browser.
+GitHub is built around the [Git](http://www.git-scm.com) distributed version control system. Sourceforge also supports Git, but more often you'll see project using [Subversion (SVN)](https://subversion.apache.org). Version control systems can be intimidating at first, but there are tutorials and applications to make life easier for beginners. If you're an absolute beginner, don't worry! You can probably do everything you'll need to do with just your web browser.
 
 - GitHub has a great [interactive Git tutorial](https://try.github.io)
 - Subversion's official documentation is a very good [book](http://svnbook.red-bean.com), free online and available in dead tree copies
@@ -80,7 +79,7 @@ Every term should have a single, official label. It can have many synonyms, tran
 
 Labels are important, but the definition is even more important, so don't stop at reading the label!
 
-OBO ontology terms all have an `rdfs:label` value. Some OBO ontologies use the IAO [editor preferred term](http://purl.obolibrary.org/obo/IAO_0000111) annotation to store the unique label, so that the `rdfs:label` can be changed to an alternative term suitable for particular use cases. There are also [naming conventions](http://obofoundry.github.io/principles/fp-012-naming-conventions.html) for OBO terms, and an [IAO ontology metadata](https://code.google.com/p/information-artifact-ontology/wiki/OntologyMetadata) page.
+OBO ontology terms all have an `rdfs:label` value. Some OBO ontologies use the IAO [editor preferred term](http://purl.obolibrary.org/obo/IAO_0000111) annotation to store the unique label, so that the `rdfs:label` can be changed to an alternative term suitable for particular use cases. There are also [naming conventions](http://obofoundry.github.io/principles/fp-012-naming-conventions.html) for OBO terms, and an [IAO ontology metadata](https://github.com/information-artifact-ontology/IAO/wiki/OntologyMetadata) page.
 
 
 ### Textual Definitions
@@ -96,7 +95,7 @@ For our current purposes, an "annotation" is a bit of data attached to a term th
 
 Does the term have a logical definition?
 
-With few exceptions, every term should have a parent term. OBO ontologies usually extend the [Basic Formal Ontology (BFO)](https://code.google.com/p/bfo/) which has just one term without a parent: "[entity](http://purl.obolibrary.org/obo/BFO_0000001)".
+With few exceptions, every term should have a parent term. OBO ontologies usually extend the [Basic Formal Ontology (BFO)](https://github.com/BFO-ontology/BFO) which has just one term without a parent: "[entity](http://purl.obolibrary.org/obo/BFO_0000001)".
 
 Most ontologies use the Web Ontology Language, which provides a range of powerful tools for make logical statements about terms and their relationships. Well-defined logical relations allow for automated reasoning over the ontology and the data that uses it. The richer the logical definitions, the more work the reasoner can do, although there's a balance to strike between power and performance.
 
@@ -244,9 +243,9 @@ Sometimes you want to import too many terms for OntoFox, but the target ontology
 
 Using this technique requires using OWLAPI, which means writing some Java code. There's no web service to do it for you, but I've provided some example code.
 
-If the ontology has many logical axioms, the extracted module might still be too big. To reduce the number of logical axioms we can use one of the many commands provided by [owltools](http://owltools.googlecode.com). The `--make-subset-by-properties` command takes a list of OWL Object Properties to keep, and removes all the rest.
+If the ontology has many logical axioms, the extracted module might still be too big. To reduce the number of logical axioms we can use one of the many commands provided by [owltools](https://github.com/owlcollab/owltools). The `--make-subset-by-properties` command takes a list of OWL Object Properties to keep, and removes all the rest.
 
-If you want to try this, download the latest [owltools-runner-all.jar](http://build.berkeleybop.org/view/Software/job/owltools/lastSuccessfulBuild/artifact/owltools/OWLTools-Runner/bin/owltools-runner-all.jar), or [build it yourself](https://code.google.com/p/owltools/wiki/MavenHowTo), and put the file in the `bin` directory of this tutorial.
+If you want to try this, download the latest [owltools-runner-all.jar](http://build.berkeleybop.org/job/owltools/lastSuccessfulBuild/artifact/OWLTools-Runner/bin/owltools-runner-all.jar), or [build it yourself](https://github.com/owlcollab/owltools), and put the file in the `bin` directory of this tutorial.
 
 Let's see this in action. First download [Uberon](purl.obolibrary.org/obo/uberon.owl) (it's about 60MB) to the `examples` directory, then `cd` to the `examples` directory. The second command  will use owltools to keep only `part_of` and `has_part` from Uberon. The third command will extract just the list of terms we want:
 
@@ -280,4 +279,3 @@ First we saw how to find reference ontology terms and assess them. Then we saw h
 Or skip those steps and just look at the resulting [application.owl](https://github.com/jamesaoverton/obo-tutorial/raw/master/examples/application.owl) file that I've created. The result includes all the terms listed in our `terms.csv` file, plus the dependencies that we want. I've also made adjustements to fit everything under BFO "entity" by adding `subClassOf` assertions here and there.
 
 One application ontology can support many similar projects. In the [next section](https://github.com/jamesaoverton/obo-tutorial/blob/master/docs/processing-data.md) we'll see how to connect the data in the running example to the application ontology to take full advantage of it.
-
