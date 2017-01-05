@@ -20,6 +20,13 @@ We use a single running example to keep things concrete: a spreadsheet of data a
 NOTE: This is still a work in progress. Not all of the sections are complete.
 
 
+## Other Resources
+
+Here are some links to other resources for learning about OBO:
+
+- [Editing GO in Protégé](https://docs.google.com/document/d/18epAEpii6tJVBW0hLxANjl2fUujgJ61Ksz7THrGL70Y/edit)
+
+
 ## Requirements
 
 To read through the tutorial and look at most of the files, all you need is a web browser. To view the OWL files you should use the desktop version of [Protégé](http://protege.stanford.edu).
