@@ -24,7 +24,7 @@ NOTE: This is still a work in progress. Not all of the sections are complete.
 
 Here are some links to other resources for learning about OBO:
 
-- [Editing GO in Protégé](https://docs.google.com/document/d/18epAEpii6tJVBW0hLxANjl2fUujgJ61Ksz7THrGL70Y/edit)
+- [GO Editors Guide](http://go-ontology.readthedocs.io)
 
 
 ## Requirements
